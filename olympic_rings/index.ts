@@ -12,7 +12,7 @@ function setup() {
   circle(340, 175, 150)
   stroke("red");
   circle(420, 100, 150)
-
+}
   // <<< Add your code here.
   //     Only add code between the curly braces (`{}`).
-}
+
