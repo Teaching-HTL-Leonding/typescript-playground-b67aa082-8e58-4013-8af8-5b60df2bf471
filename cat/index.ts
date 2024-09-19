@@ -1,5 +1,4 @@
-function setup() {
-    createCanvas(500, 500);
+function setup() {createCanvas(500, 500);
     strokeWeight(2);
      background("skyblue");
       fill("lightgrey"); 
@@ -19,5 +18,7 @@ function setup() {
         line(250,270,250,300)
 line(250,300,200,315)
 line(250,300,300,315)
-line()
+line(200,315,165,300)
+line(300,315,340,300)
+}
 }
