@@ -13,5 +13,5 @@ circle(mouseX, mouseY, 50);
 circle(mouseX, mouseY, 25)
   fill("black");
   rect(mouseX , mouseY - 35, 2, 75)
- rect(mouseX -50, mouseY, 75, 2)
+ rect(mouseX -36, mouseY, 75, 2)
 }
