@@ -1,4 +1,4 @@
-let clickProtocol = "0/0";
+let clickprotocol = "0/0";
 
 function setup() {
   createCanvas(400, 400);
@@ -16,8 +16,8 @@ fill("lightblue")
   fill("aqua");
   circle(mouseX, mouseY, 20);
 
-  clickProtocol += `, ${mouseX}/${mouseY}`;
+  clickprotocol += `, ${mouseX}/${mouseY}`;
 
   fill("black");
-  text(clickProtocol , 0, 0, 400, 400);
+  text(clickprotocol , 0, 0, 400, 400);
 }
