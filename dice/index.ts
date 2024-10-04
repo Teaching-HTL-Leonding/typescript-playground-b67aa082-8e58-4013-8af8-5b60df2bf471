@@ -35,11 +35,11 @@ function setup() {
     circle(width / 2, height / 2, dicePointDiameter);
   }
   else if (dice === 6) {
-    circle(width/4,height/6,dicePointDiameter)
-    circle(width/4,height/6*3,dicePointDiameter)
-    circle(width/4,height/6*5,dicePointDiameter)
-    circle(width/4*3,height/6,dicePointDiameter)
-    circle(width/4*3,height/6*3,dicePointDiameter)
-    circle(width/4*3,height/6*5,dicePointDiameter)
+    circle(width / 4, height / 6, dicePointDiameter)
+    circle(width / 4, height / 6 * 3, dicePointDiameter)
+    circle(width / 4, height / 6 * 5, dicePointDiameter)
+    circle(width / 4 * 3, height / 6, dicePointDiameter)
+    circle(width / 4 * 3, height / 6 * 3, dicePointDiameter)
+    circle(width / 4 * 3, height / 6 * 5, dicePointDiameter)
   }
 }
