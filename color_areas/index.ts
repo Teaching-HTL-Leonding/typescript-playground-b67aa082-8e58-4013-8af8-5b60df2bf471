@@ -3,20 +3,20 @@ function setup() {
     background("black");
     noStroke();
     fill("red")
-    rect(width/3*2,0,width/3,height)
+    rect(width / 3 * 2, 0, width / 3, height)
     fill("green")
-    rect(width/3,0, width/3,height)
+    rect(width / 3, 0, width / 3, height)
     fill("orange");
-    rect(0,0,width/3,height)
+    rect(0, 0, width / 3, height)
     fill("black")
-    rect(0,150,width,height/4)
+    rect(0, 150, width, height / 4)
 }
 function mouseClicked() {
     fill("black")
-    rect(0,150,width,height/4)
+    rect(0, 150, width, height / 4)
     let message: string;
 
-    if(mouseX < width / 3) {
+    if (mouseX < width / 3) {
         message = "Yellow";
     } else if (mouseX < width / 3 * 2) {
         message = "Green";
@@ -27,6 +27,6 @@ function mouseClicked() {
     fill("white");
     textSize(30);
     textAlign(CENTER);
-    text(`${message}`, width / 2 , height - 20);
+    text(`${message}`, width / 2, height - 20);
 
 }
