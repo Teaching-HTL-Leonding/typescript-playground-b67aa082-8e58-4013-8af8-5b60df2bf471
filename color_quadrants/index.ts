@@ -18,16 +18,16 @@ function mouseClicked() {
     let message: string
     fill("black")
     rect(width / 2 - width / 4, height / 2 - height / 10, width / 2, height / 5)
-    if (mouseX < width / 2 && mouseY < height / 2) {
+    if (mouseX <= width / 2 && mouseY <= height / 2) {
         message = "orange"
     }
-    if (mouseX > width / 2 && mouseY < height / 2) {
+    if (mouseX >= width / 2 && mouseY <= height / 2) {
         message = "green"
     }
-    if (mouseX < width / 2 && mouseY > height / 2) {
+    if (mouseX <= width / 2 && mouseY >= height / 2) {
         message = "blue"
     }
-    if (mouseX > width / 2 && mouseY > height / 2) {
+    if (mouseX >= width / 2 && mouseY >= height / 2) {
         message = "red"
     }
     textSize(21)
