@@ -12,17 +12,8 @@ function setup() {
     rect(0,150,width,height/4)
 }
 function mouseClicked() {
-    background("black");
-    noStroke();
-
-    fill("orange")
-    rect(0, 0, width  / 3, height * 0.75);
-
-    fill("green");
-    rect(width / 3, 0, width / 3, height * 0.75);
-
-    fill("red");
-    rect(width * (2 / 3), 0, width / 3, height * 0.75);
+    fill("black")
+    rect(0,150,width,height/4)
     let message: string;
 
     if(mouseX < width / 3) {
