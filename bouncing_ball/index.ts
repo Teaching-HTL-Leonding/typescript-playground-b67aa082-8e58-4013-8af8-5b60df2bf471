@@ -18,20 +18,20 @@ function draw() {
 
   circleCenterX += direction;
 
-                   
-  if (circleCenterX >= width || circleCenterX <= 0) {
-    
-    direction *= -1; 
-  }
-  
-    stroke("white")
-    strokeWeight(3)
-    fill("aqua")
-    circle(width/2, circleCenterY , circleDiameter)
 
-    circleCenterY = circleCenterY + direction2
-    if (circleCenterY >= height || circleCenterY <= 0){
-      direction2 *= -1;
-    }
+  if (circleCenterX >= width || circleCenterX <= 0) {
+
+    direction *= -1;
+  }
+
+  stroke("white")
+  strokeWeight(3)
+  fill("aqua")
+  circle(width / 2, circleCenterY, circleDiameter)
+
+  circleCenterY = circleCenterY + direction2
+  if (circleCenterY >= height || circleCenterY <= 0) {
+    direction2 *= -1;
+  }
 }
 
