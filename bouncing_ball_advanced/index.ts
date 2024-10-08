@@ -5,8 +5,8 @@ function setup() {
 const circleDiameter = 50;
 
 let circleCenterX = 200;
-let circleCenterY = 100;
-let xdirection = 2;
+let circleCenterY = 75;
+let xdirection = -2;
 let ydirection = 2;
 
 function draw() {
