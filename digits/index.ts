@@ -1,5 +1,6 @@
 function setup() {
-  createCanvas(1000,1000)
+  createCanvas(1000,500)
+  background("black")
   const num = Math.floor(random(0, 1_000_000));
   const lastDigit1 = num % 10;
   const numWithoutLastDigit = Math.floor(num / 10);
@@ -13,7 +14,7 @@ function setup() {
   const numWithoutLastDigit4 = Math.floor( numWithoutLastDigit3/ 10);
   const lastDigit6 = numWithoutLastDigit4 % 10;
   const numWithoutLastDigit5 = Math.floor( numWithoutLastDigit4/ 10);
-  // Add the necessary code here
+  
   
   textAlign(CENTER, CENTER);
   fill("yellow");
@@ -25,6 +26,19 @@ function setup() {
   text(lastDigit4, width/4 + 400, height-20)
   text(lastDigit5, width/4 + 500, height-20)
   text(lastDigit6, width/4 + 600, height-20)
+  noFill();
+  stroke("yellow")
+  
+  rect(width/15,height-height/4*3,width/15,height/4)
+  rect(width/5,height-height/4*3,width/15,height/4)
+  rect(width/2-width/6,height-height/4*3,width/15,height/4)
+  rect(width/2-width/24,height-height/4*3,width/15,height/4)
+  rect(width/3*2-width/12,height-height/4*3,width/15,height/4)
+    rect(width-width/3*2,height-height/4*3,width/15,height/4)
+
+
+
+
 
 
 
