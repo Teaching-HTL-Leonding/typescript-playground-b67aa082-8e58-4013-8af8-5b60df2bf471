@@ -72,6 +72,4 @@ function setup() {
   rect(width / 2 - width / 4, height / 2 - 80, 100, 160)
   rect(width / 2 - 50, height / 2 - 80, 100, 160)
   rect(width / 2 + width / 8, height / 2 - 80, 100, 160)
-
-
 }
