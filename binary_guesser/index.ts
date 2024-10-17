@@ -89,6 +89,11 @@ function mouseClicked() {
     rect(5 * width / 8, 100, 50, 100)
 textSize(40)
 fill("green")
-text(`${"correct"}`, width/2 , height - 50)
+text(`${"Correct!"}`,width/2,height - 50)
+textSize(80)
+text(binaryDigit1, 148, 150)
+text(binaryDigit2, 211, 150)
+ text(binaryDigit3, 274, 150)
+ text(binaryDigit4, 337, 150)
   }
 }
