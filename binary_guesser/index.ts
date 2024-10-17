@@ -1,40 +1,94 @@
+let binaryDigit1: number = 0
+let binaryDigit2: number = 0
+let binaryDigit3: number = 0
+let binaryDigit4: number = 0
+let num :number;
 function setup() {
-  createCanvas(800, 500)
+   num = Math.floor(random(0, 16));
+  createCanvas(500, 300)
   background("black")
-  const num = Math.floor(random(0, 16));
-  const lastDigit1 = num % 2;
-  const numWithoutLastDigit = Math.floor(num / 2);
-  const lastDigit2 = numWithoutLastDigit % 2;
-  const numWithoutLastDigit1 = Math.floor(numWithoutLastDigit / 2);
-  const lastDigit3 = numWithoutLastDigit1 % 2;
-  const numWithoutLastDigit2 = Math.floor(numWithoutLastDigit1 / 2);
-  const lastDigit4 = numWithoutLastDigit2 % 2;
-  
- 
+
 
 
   textAlign(CENTER, CENTER);
   fill("yellow");
   noStroke();
-  textSize(20)
-  text(num, width / 2, height - 20);
+  textSize(40)
+  text(`${num} in binary?`, width / 2, 50);
   textSize(80)
-  text(lastDigit1, width - width / 3 + width / 25 + width / 27, height - height / 4 * 3 + height / 7)
-  text(lastDigit2, width / 3 * 2 - width / 12 + width / 27, height - height / 4 * 3 + height / 7)
-  text(lastDigit3, width / 2 - width / 24 + width / 27, height - height / 4 * 3 + height / 7)
-  text(lastDigit4, width / 2 - width / 6 + width / 27, height - height / 4 * 3 + height / 7)
- 
+  text(binaryDigit4, 337, 150)
+  text(binaryDigit3, 274, 150)
+  text(binaryDigit2, 211, 150)
+  text(binaryDigit1, 148, 150)
   noFill();
   stroke("yellow")
 
- 
-  rect(width / 2 - width / 6, height - height / 4 * 3, width / 15, height / 4)
-  rect(width / 2 - width / 24, height - height / 4 * 3, width / 15, height / 4)
-  rect(width / 3 * 2 - width / 12, height - height / 4 * 3, width / 15, height / 4)
-  rect(width - width / 3 + width / 25, height - height / 4 * 3, width / 15, height / 4)
 
+  rect(2 * width / 8, 100, 50, 100)
+  rect(3 * width / 8, 100, 50, 100)
+  rect(4 * width / 8, 100, 50, 100)
+  rect(5 * width / 8, 100, 50, 100)
 
 }
 function mouseClicked() {
-  
+  if (mouseX > 2 * width / 8 && mouseX < 2 * width / 8 + 50 && mouseY > 100 && mouseY < 100 + 100) {
+    fill("black")
+    rect(2 * width / 8, 100, 50, 100)
+    fill("yellow");
+    if (binaryDigit1 === 0) {
+      binaryDigit1 = 1
+    }
+    else if (binaryDigit1 === 1) {
+      binaryDigit1 = 0
+    }
+    text(binaryDigit1, 148, 150)
+  }
+
+
+
+
+  if (mouseX > 3 * width / 8 && mouseX < 3 * width / 8 + 50 && mouseY > 100 && mouseY < 100 + 100) {
+    fill("black")
+    rect(3 * width / 8, 100, 50, 100)
+    fill("yellow");
+    if (binaryDigit2 === 0) {
+      binaryDigit2 = 1
+    }
+    else if (binaryDigit2 === 1) {
+      binaryDigit2 = 0
+    }
+    text(binaryDigit2, 211, 150)
+  }
+
+
+  if (mouseX < 4 * width / 8 + 50 && mouseX > 4 * width / 8 && mouseY > 100 && mouseY < 200) {
+    fill("black")
+    rect(4 * width / 8, 100, 50, 100)
+    fill("yellow")
+    if (binaryDigit3 === 0) {
+      binaryDigit3 = 1
+    } else { binaryDigit3 = 0 }
+    text(binaryDigit3, 274, 150)
+  }
+  if (mouseX < 5 * width / 8 + 50 && mouseX > 5 * width / 8 && mouseY > 100 && mouseY < 200) {
+    fill("black")
+    rect(5 * width / 8, 100, 50, 100)
+    fill("yellow")
+    if (binaryDigit4 === 0) {
+      binaryDigit4 = 1
+    } else { binaryDigit4 = 0 }
+    text(binaryDigit4, 337, 150)
+  }
+  let decimalnum = binaryDigit1 * Math.pow(2, 3) + binaryDigit2 * Math.pow(2, 2) + binaryDigit3 * Math.pow(2, 1) + binaryDigit4 * Math.pow(2, 0)
+  if (decimalnum === num) {
+    noFill();
+    stroke("green")
+    rect(2 * width / 8, 100, 50, 100)
+    rect(3 * width / 8, 100, 50, 100)
+    rect(4 * width / 8, 100, 50, 100)
+    rect(5 * width / 8, 100, 50, 100)
+textSize(40)
+fill("green")
+text(`${"correct"}`, width/2 , height - 50)
+  }
 }
