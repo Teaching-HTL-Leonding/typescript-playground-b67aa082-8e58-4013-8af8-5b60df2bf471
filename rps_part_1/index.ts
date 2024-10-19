@@ -21,8 +21,8 @@ function setup() {
     text(`📃`,185,145)
     text(`✂️`,310,145)
 }
-
 function mouseMoved() {
+strokeWeight(2);
     noFill()
     if(mouseX>50 && mouseX<150 && mouseY>75&& mouseY< 175){
     stroke("yellow")
