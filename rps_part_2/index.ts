@@ -6,7 +6,7 @@ const SCISSORS_LEFT = 300;
 const ICON_WIDTH = 100;
 const ICON_TOP = 75;
 const ICON_HEIGHT = 100;
-const computer = Math.random(1,4)
+    
 function setup() {
     createCanvas(500, 490);
     background("black");
@@ -20,7 +20,7 @@ function setup() {
     text("🪨", STONE_LEFT, HUMAN_SYMBOLS_TOP);
     text("📃", PAPER_LEFT, HUMAN_SYMBOLS_TOP);
     text("✂️", SCISSORS_LEFT, HUMAN_SYMBOLS_TOP);
-
+    textSize(20)
 }
     const isInVertical = mouseY >= ICON_TOP && mouseY < ICON_TOP + ICON_HEIGHT;
 
@@ -55,6 +55,7 @@ function mouseMoved() {
     rect(SCISSORS_LEFT, ICON_TOP, ICON_WIDTH, ICON_HEIGHT);
 }
 let userchoice:number = 0
+let outcome = "eee"
 function mouseClicked() {
     if (isInVertical && mouseX >= STONE_LEFT && mouseX < STONE_LEFT + ICON_WIDTH){
         userchoice = 1
@@ -65,6 +66,10 @@ function mouseClicked() {
     if (isInVertical && mouseX >= SCISSORS_LEFT && mouseX < SCISSORS_LEFT + ICON_WIDTH){
         userchoice = 3
     }
-
-
+const computer = Math.floor(random(0,4))
+    if(computer === userchoice){
+        outcome = "It's a tie!"
+    }
+fill("yellow")
+text(`${outcome}`,450,30)
 }
