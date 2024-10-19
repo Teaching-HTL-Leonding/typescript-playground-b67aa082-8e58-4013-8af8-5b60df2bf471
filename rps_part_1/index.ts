@@ -17,24 +17,36 @@ function setup() {
     fill("yellow")
     text(`Human:`,30,50)
     textSize(60)
-    text(`🪨`,50,125)
-    text(`📃`,175,125)
-    text(`✂️`,300,125)
+    text(`🪨`,60,145)
+    text(`📃`,185,145)
+    text(`✂️`,310,145)
 }
 
 function mouseMoved() {
-    stroke("yellow")
     noFill()
     if(mouseX>50 && mouseX<150 && mouseY>75&& mouseY< 175){
+    stroke("yellow")
+  } 
+     else {
+        stroke("black");
+    }
         rect(50,75,100,100)
+
+
    
-}
+
         
     if(mouseX>175 && mouseX<275 && mouseY>75&& mouseY< 175){
+stroke("yellow")
+    }        
+     else {
+        stroke("black");
+    }
                 rect(175,75,100,100)
-
+    if (mouseX>300&& mouseX<400&&mouseY>75&& mouseY< 175){
+        stroke("yellow")
+   }
+         else {
+        stroke("black");
     }
-if (mouseX>300&& mouseX<400&&mouseY>75&& mouseY< 175){
-    rect(300,75,100,100)
-}
-    }
+    rect(300,75,100,100)}
