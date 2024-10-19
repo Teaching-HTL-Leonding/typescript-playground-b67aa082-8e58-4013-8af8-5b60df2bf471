@@ -54,9 +54,9 @@ function mouseMoved() {
     }
     rect(SCISSORS_LEFT, ICON_TOP, ICON_WIDTH, ICON_HEIGHT);
 }
+function mouseClicked() {
 let userchoice:number = 0
 let outcome = "eee"
-function mouseClicked() {
     if (isInVertical && mouseX >= STONE_LEFT && mouseX < STONE_LEFT + ICON_WIDTH){
         userchoice = 1
     }
@@ -69,7 +69,7 @@ function mouseClicked() {
 const computer = Math.floor(random(0,4))
     if(computer === userchoice){
         outcome = "It's a tie!"
-    }
 fill("yellow")
-text(`${outcome}`,450,30)
+text(`It's a tie!`,200,30)
+    }
 }
