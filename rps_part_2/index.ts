@@ -71,16 +71,16 @@ if(computerv2 === 0){
     if( computer === 1 && selected === 1 ||
         computer === 2 && selected === 2||
         computer === 3 && selected === 3  ){
-        output= "It's a tie"
+        output= "It's a tie!"
     }
     else if( computer === 1 && selected === 3 ||
              computer === 2 && selected === 1 ||
              computer === 3 && selected === 2 ){
-                output= "you lose "}
+                output= "Computer Wins!"}
        else if( computer === 3 && selected === 1 ||
                 computer === 1 && selected === 2 ||
                 computer === 2 && selected === 3 ){
-        output = "you win "}
+        output = "You Win!"}
     fill("yellow")
     textSize(30)
     text(`${output}`,20, 450 )
@@ -92,5 +92,18 @@ if(computerv2 === 0){
  rect(SCISSORS_LEFT, ICON_TOP, ICON_WIDTH, ICON_HEIGHT)
  rect(PAPER_LEFT, ICON_TOP, ICON_WIDTH, ICON_HEIGHT)
  rect(STONE_LEFT, ICON_TOP, ICON_WIDTH, ICON_HEIGHT)
+ if (mouseY >= ICON_TOP && mouseY < ICON_TOP + ICON_HEIGHT && mouseX >= STONE_LEFT && mouseX < STONE_LEFT + ICON_WIDTH){
+    stroke("yellow")
+ rect(STONE_LEFT, ICON_TOP, ICON_WIDTH, ICON_HEIGHT)
  }
+if (mouseY >= ICON_TOP && mouseY < ICON_TOP + ICON_HEIGHT && mouseX >= PAPER_LEFT && mouseX < PAPER_LEFT + ICON_WIDTH){
+     
+     stroke("yellow")
+     rect(PAPER_LEFT, ICON_TOP, ICON_WIDTH, ICON_HEIGHT)
+}
+if (mouseY >= ICON_TOP && mouseY < ICON_TOP + ICON_HEIGHT && mouseX >= SCISSORS_LEFT && mouseX < SCISSORS_LEFT + ICON_WIDTH){
+    stroke("yellow")
+     rect(SCISSORS_LEFT, ICON_TOP, ICON_WIDTH, ICON_HEIGHT)
 
+}
+ }
