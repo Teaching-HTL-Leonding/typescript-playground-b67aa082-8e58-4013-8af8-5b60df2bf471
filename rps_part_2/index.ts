@@ -11,26 +11,18 @@ let computerv2 : number = 0
 function setup() {
     createCanvas(500, 490);
     background("black");
-
     fill("yellow");
     textSize(30);
     text("Human:", TEXT_LEFT, 50);
-
-    
     textSize(75);
     text("🪨", STONE_LEFT, HUMAN_SYMBOLS_TOP);
     text("📃", PAPER_LEFT, HUMAN_SYMBOLS_TOP);
     text("✂️", SCISSORS_LEFT, HUMAN_SYMBOLS_TOP);
 }
-
 function mouseMoved() {
-    
     noFill();
     strokeWeight(3);
-
-    
     const isInVertical = mouseY >= ICON_TOP && mouseY < ICON_TOP + ICON_HEIGHT;
-
     if(computerv2 === 0){
     if (isInVertical && mouseX >= STONE_LEFT && mouseX < STONE_LEFT + ICON_WIDTH) {
         stroke("yellow"); 
@@ -38,16 +30,12 @@ function mouseMoved() {
         stroke("black"); 
     }
     rect(STONE_LEFT, ICON_TOP, ICON_WIDTH, ICON_HEIGHT);
-
- 
     if (isInVertical && mouseX >= PAPER_LEFT && mouseX < PAPER_LEFT + ICON_WIDTH) {
         stroke("yellow");
     } else {
         stroke("black");
     }
     rect(PAPER_LEFT, ICON_TOP, ICON_WIDTH, ICON_HEIGHT);
-
-  
     if (isInVertical && mouseX >= SCISSORS_LEFT && mouseX < SCISSORS_LEFT + ICON_WIDTH) {
         stroke("yellow");
     } else {
@@ -55,7 +43,6 @@ function mouseMoved() {
     }
     rect(SCISSORS_LEFT, ICON_TOP, ICON_WIDTH, ICON_HEIGHT);
 }}
-
 function mouseClicked() {
     textSize(50)
     fill("black")
@@ -84,7 +71,6 @@ if(computerv2 === 0){
         computer === 2 && selected === 2||
         computer === 3 && selected === 3  ){
         output= "It's a tie"
-       
     }
     else if( computer === 1 && selected === 3 ||
              computer === 2 && selected === 1 ||
@@ -93,16 +79,16 @@ if(computerv2 === 0){
        else if( computer === 3 && selected === 1 ||
                 computer === 1 && selected === 2 ||
                 computer === 2 && selected === 3 ){
-        output = "you win "
-    }
+        output = "you win "}
     fill("yellow")
     textSize(50)
     text(`${output}`,20, 350 )
-             }
-             computerv2 = 5
-             stroke("black");
-             noFill()
-             rect(SCISSORS_LEFT, ICON_TOP, ICON_WIDTH, ICON_HEIGHT)
-             rect(PAPER_LEFT, ICON_TOP, ICON_WIDTH, ICON_HEIGHT)
-             rect(STONE_LEFT, ICON_TOP, ICON_WIDTH, ICON_HEIGHT)}
+  }
+ computerv2 = 5
+ stroke("black");
+ noFill()
+ rect(SCISSORS_LEFT, ICON_TOP, ICON_WIDTH, ICON_HEIGHT)
+ rect(PAPER_LEFT, ICON_TOP, ICON_WIDTH, ICON_HEIGHT)
+ rect(STONE_LEFT, ICON_TOP, ICON_WIDTH, ICON_HEIGHT)
+ }
 
