@@ -37,7 +37,7 @@ function mouseMoved() {
     // value once and use the variable later multiple times.
     const isInVertical = mouseY >= ICON_TOP && mouseY < ICON_TOP + ICON_HEIGHT;
 
-    // Check if the mouse is over the "stone" icon.
+    if(computerv2 === 0){
     if (isInVertical && mouseX >= STONE_LEFT && mouseX < STONE_LEFT + ICON_WIDTH) {
         stroke("yellow"); // Highlight with yellow.
     } else {
@@ -61,7 +61,7 @@ function mouseMoved() {
         stroke("black");
     }
     rect(SCISSORS_LEFT, ICON_TOP, ICON_WIDTH, ICON_HEIGHT);
-}
+}}
 
 function mouseClicked() {
     textSize(50)
@@ -106,5 +106,10 @@ if(computerv2 === 0){
     textSize(50)
     text(`${output}`,20, 350 )
              }
-             computerv2 = 5}
-}
+             computerv2 = 5
+             stroke("black");
+             noFill()
+             rect(SCISSORS_LEFT, ICON_TOP, ICON_WIDTH, ICON_HEIGHT)
+             rect(PAPER_LEFT, ICON_TOP, ICON_WIDTH, ICON_HEIGHT)
+             rect(STONE_LEFT, ICON_TOP, ICON_WIDTH, ICON_HEIGHT)}
+
