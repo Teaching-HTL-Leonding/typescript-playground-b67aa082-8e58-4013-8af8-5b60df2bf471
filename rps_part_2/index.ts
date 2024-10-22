@@ -18,6 +18,7 @@ function setup() {
     text("🪨", STONE_LEFT, HUMAN_SYMBOLS_TOP);
     text("📃", PAPER_LEFT, HUMAN_SYMBOLS_TOP);
     text("✂️", SCISSORS_LEFT, HUMAN_SYMBOLS_TOP);
+    textSize(25)
 }
 function mouseMoved() {
     noFill();
@@ -81,8 +82,9 @@ if(computerv2 === 0){
                 computer === 2 && selected === 3 ){
         output = "you win "}
     fill("yellow")
-    textSize(50)
-    text(`${output}`,20, 350 )
+    textSize(30)
+    text(`${output}`,20, 450 )
+    text(`computer: `,20,300)
   }
  computerv2 = 5
  stroke("black");
