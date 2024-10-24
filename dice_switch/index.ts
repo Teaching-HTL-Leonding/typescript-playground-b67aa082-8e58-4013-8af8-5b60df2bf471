@@ -1,5 +1,5 @@
 function setup() {
-    // Diameter of a point from the dice
+   
     const dicePointDiameter: number = 30;
 
     createCanvas(200, 200);
