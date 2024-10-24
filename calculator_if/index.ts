@@ -30,12 +30,12 @@ function setup() {
 }
 
 function draw() {
+
 noStroke()
 fill("white")
 rect(10,10,width-20,height/5-20)
 fill("black")
 text(`${inpout}`,width/2,height/5-width/10)
-
 }
 
 function mouseClicked() {
@@ -47,5 +47,17 @@ function mouseClicked() {
   }
   if(mouseX>0&&mouseX<width/3&&mouseY>height/5*2&&mouseY<height/5*3){
     inpout = inpout*10+4
+  }
+  if(mouseX>0&&mouseX<width/3&&mouseY>height/5&&mouseY<height/5*2){
+    inpout = inpout*10+7
+  }
+  if(mouseX>width/3&&mouseX<width/3*2&&mouseY>height/5&&mouseY<height/5*2){
+    inpout = inpout*10+8
+  }
+  if(mouseX>width/3&&mouseX<width/3*2&&mouseY>height/5*2&&mouseY<height/5*3){
+    inpout = inpout*10+5
+  }
+  if(mouseX>width/3&&mouseX<width/3*2&&mouseY>height/5*3&&mouseY<height/5*4){
+    inpout= inpout*10+2
   }
 }
