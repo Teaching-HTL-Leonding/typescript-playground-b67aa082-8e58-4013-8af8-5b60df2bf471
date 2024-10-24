@@ -60,4 +60,13 @@ function mouseClicked() {
   if(mouseX>width/3&&mouseX<width/3*2&&mouseY>height/5*3&&mouseY<height/5*4){
     inpout= inpout*10+2
   }
+  if(mouseX>width/3*2&&mouseX<width&&mouseY>height/5&&mouseY<height/5*2){
+    inpout = inpout*10+9
+  }
+  if(mouseX>width/3*2&&mouseX<width&&mouseY>height/5*2&&mouseY<height/5*3){
+    inpout = inpout*10+6
+  }
+  if(mouseX>width/3*2&&mouseX<width&&mouseY>height/5*3&&mouseY<height/5*4){
+    
+  }
 }
