@@ -37,6 +37,8 @@ rect(10,10,width-20,height/5-20)
 fill("black")
 textAlign(RIGHT,CENTER)
 text(`${inpout}`,width-10,height/5/2)
+fill("lightgrey")
+rect(0,10,10,height/5-20)
 }
 
 function mouseClicked() {
