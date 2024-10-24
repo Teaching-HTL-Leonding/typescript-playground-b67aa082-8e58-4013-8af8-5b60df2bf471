@@ -5,11 +5,11 @@ let lineHeight: number = 0;   // Height of a line of the responsive layout
 let cellWidth: number = 0;    // Width of a cell of the responsive layout
 
 function setup() {
-    textSize(50)
     createCanvas(300, 500);
     background("lightgray");
-    text(`0`,width/3,height-20)
-    strokeWeight(2)
+    textSize(50)
+    text(`0`,width/3-12,height-20)
+    strokeWeight(3)
     line(0,height/5,width,height/5)
     line(0,height/5*2,width,height/5*2)
     line(0,height/5*3,width,height/5*3)
