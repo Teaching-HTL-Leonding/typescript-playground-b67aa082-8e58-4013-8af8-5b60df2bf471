@@ -3,7 +3,7 @@ const MARGIN_NUM = 10;
 let num: number = 0;          // Current number entered by the user
 let lineHeight: number = 0;   // Height of a line of the responsive layout
 let cellWidth: number = 0;    // Width of a cell of the responsive layout
-
+let inpout : number = 0;
 function setup() {
     createCanvas(300, 500);
     background("lightgray");
@@ -30,7 +30,11 @@ function setup() {
 }
 
 function draw() {
-
+noStroke()
+fill("white")
+rect(10,10,width-20,height/5-20)
+fill("black")
+text(`${inpout}`,width/2,height/5-width/10)
 
 }
 
