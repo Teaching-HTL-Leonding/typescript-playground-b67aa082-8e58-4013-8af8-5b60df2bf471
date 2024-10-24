@@ -35,7 +35,8 @@ noStroke()
 fill("white")
 rect(10,10,width-20,height/5-20)
 fill("black")
-text(`${inpout}`,width/2,height/5-width/10)
+textAlign(RIGHT,CENTER)
+text(`${inpout}`,width-10,height/5/2)
 }
 
 function mouseClicked() {
@@ -67,6 +68,9 @@ function mouseClicked() {
     inpout = inpout*10+6
   }
   if(mouseX>width/3*2&&mouseX<width&&mouseY>height/5*3&&mouseY<height/5*4){
-    
+    inpout = inpout*10+3
+  }
+  if(mouseX>width/3*2&&mouseX<width&&mouseY>height/5*4&&mouseY<height){
+    inpout = 0
   }
 }
