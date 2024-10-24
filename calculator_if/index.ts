@@ -39,5 +39,13 @@ text(`${inpout}`,width/2,height/5-width/10)
 }
 
 function mouseClicked() {
-  
+  if(mouseX>0&&mouseX<width/3*2&&mouseY>height/5*4&&mouseY<height){
+    inpout = inpout*10 +0
+  }
+  if(mouseX>0&&mouseX<width/3&&mouseY>height/5*3&&mouseY<height/5*4){
+    inpout = inpout*10 + 1
+  }
+  if(mouseX>0&&mouseX<width/3&&mouseY>height/5*2&&mouseY<height/5*3){
+    inpout = inpout*10+4
+  }
 }
