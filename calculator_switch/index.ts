@@ -1,45 +1,106 @@
-let inpout: number = 0;
+const MARGIN_NUM = 10;
+
+let num: number = 0;
+let lineHeight: number = 0;
+let cellWidth: number = 0;
+
 function setup() {
     createCanvas(300, 500);
-    background("lightgray");
-    textSize(50)
-    textAlign(CENTER)
-    text(`0`, width / 3 - 12, height - 20)
-    text(`C`, width - 75, height - 20)
-    text(`1`, width / 3 - 60, height / 5 * 4 - 20)
-    text(`2`, width / 3 * 2 - 60, height / 5 * 4 - 20)
-    text(`3`, width - 60, height / 5 * 4 - 20)
-    text(`4`, width / 3 - 60, height / 5 * 3 - 20)
-    text(`7`, width / 3 - 60, height / 5 * 2 - 20)
-    text(`5`, width / 3 * 2 - 60, height / 5 * 3 - 20)
-    text(`6`, width - 60, height / 5 * 3 - 20)
-    text(`8`, width / 3 * 2 - 60, height / 5 * 2 - 20)
-    text(`9`, width - 60, height / 5 * 2 - 20)
-    strokeWeight(3)
-    line(0, height / 5, width, height / 5)
-    line(0, height / 5 * 2, width, height / 5 * 2)
-    line(0, height / 5 * 3, width, height / 5 * 3)
-    line(0, height / 5 * 4, width, height / 5 * 4)
-    line(width / 3, height / 5 * 4, width / 3, height / 5)
-    line(width / 3 * 2, height, width / 3 * 2, height / 5)
+    lineHeight = height / 5;
+    cellWidth = width / 3;
 }
 
 function draw() {
+    background("lightgray");
 
-    noStroke()
-    fill("white")
-    rect(10, 10, width - 20, height / 5 - 20)
-    fill("black")
-    textAlign(RIGHT, CENTER)
-    text(`${inpout}`, width - 10, height / 5 / 2)
-    fill("lightgrey")
-    rect(0, 10, 10, height / 5 - 20)
+    noStroke();
+    fill("white");
+    rect(MARGIN_NUM, MARGIN_NUM, width - 2 * MARGIN_NUM, lineHeight - 2 * MARGIN_NUM);
+
+    stroke("black");
+    fill("black");
+    strokeWeight(2);
+    textSize(50);
+
+    textAlign(RIGHT, CENTER);
+    text(num, width - MARGIN_NUM * 2, lineHeight / 2);
+
+    textAlign(CENTER, CENTER);
+
+    let y = lineHeight * 1;
+    line(0, y, width, y);
+    text('7', width / 3 * 0 + cellWidth / 2, y + lineHeight / 2);
+    text('8', width / 3 * 1 + cellWidth / 2, y + lineHeight / 2);
+    text('9', width / 3 * 2 + cellWidth / 2, y + lineHeight / 2);
+
+    y += lineHeight;
+    line(0, y, width, y);
+    text('4', width / 3 * 0 + cellWidth / 2, y + lineHeight / 2);
+    text('5', width / 3 * 1 + cellWidth / 2, y + lineHeight / 2);
+    text('6', width / 3 * 2 + cellWidth / 2, y + lineHeight / 2);
+
+    y += lineHeight;
+    line(0, y, width, y);
+    text('1', width / 3 * 0 + cellWidth / 2, y + lineHeight / 2);
+    text('2', width / 3 * 1 + cellWidth / 2, y + lineHeight / 2);
+    text('3', width / 3 * 2 + cellWidth / 2, y + lineHeight / 2);
+
+    y += lineHeight;
+    line(0, y, width, y);
+    text('0', cellWidth, y + lineHeight / 2);
+    text('C', cellWidth * 2.5, y + lineHeight / 2);
+    
+    let x = cellWidth * 1;
+    line(x, lineHeight, x, height - lineHeight);
+
+    x += cellWidth;
+    line(x, lineHeight, x, height);
 }
 
 function mouseClicked() {
-let x = mouseX
-let y = mouseY
-    switch(x){
-        case 1 : x< width/3 && x>0&&
+  if (mouseY > lineHeight && mouseY <= height && mouseX >= 0 && mouseX <= width) {
+    const clickedY = Math.floor((mouseY - lineHeight) / lineHeight);
+    const clickedX = Math.floor(mouseX / cellWidth);
+
+    let digit: number = -1;
+    switch (clickedY) {
+        case 0:
+            switch (clickedX) {
+                case 0: digit = 7; break;
+                case 1: digit = 8; break;
+                case 2: digit = 9; break;
+            }
+            break;
+        case 1:
+            switch (clickedX) {
+                case 0: digit = 4; break;
+                case 1: digit = 5; break;
+                case 2: digit = 6; break;
+            }
+            break;
+        case 2:
+            switch (clickedX) {
+                case 0: digit = 1; break;
+                case 1: digit = 2; break;
+                case 2: digit = 3; break;
+            }
+            break;
+        default:
+            switch (clickedX) {
+                case 0:digit = 0;
+                case 1:digit = 0;
+                    
+            }
     }
+
+    if (digit === -1) {
+        num = 0;
+    } else {
+        const oldNum = num;
+        num = num * 10 + digit;
+        if (num >= 1000000000) {
+            num = oldNum;
+        }
+    }
+  }
 }
