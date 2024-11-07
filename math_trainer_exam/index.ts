@@ -20,8 +20,7 @@ function setup() {
     three = Math.floor(random(1, 101))
     position = Math.floor(random(1, 4))
     operandnumber = Math.floor(random(1, 4))
-    one1 = Math.floor(random(1, 101))
-    two1 = Math.floor(random(1, 101))
+    
     if (operandnumber === 1) {
         operand = "+"
     }
@@ -29,8 +28,13 @@ function setup() {
         operand = "-"
     }
     else if (operandnumber === 3) {
-        operand = "*"
-    }
+        operand = "*"}
+    if(operand ==="+"||operand === " -"){
+        one1 = Math.floor(random(1, 101))
+        two1 = Math.floor(random(1, 101))}
+    else{ one1 = Math.floor(random(1, 11))
+        two1 = Math.floor(random(1, 11))}
+
     if (operand === "+") {
         rightanswer = one1 + two1
     }
@@ -44,20 +48,29 @@ function setup() {
     background("black");
 
 
-    textAlign(CENTER)
+    
     textSize(40)
     stroke("yellow")
     fill("yellow")
     if (position === 1) {
-        text(`${rightanswer}`, width / 3-50, height / 2)
+        text(`${rightanswer}`, width / 3-75, height / 2)
     }
     if (position === 2) {
-        text(`${rightanswer}`, width/ 2 -50, height / 2)
+        text(`${rightanswer}`, width/ 2-10, height / 2)
     }
     if (position === 3) {
-        text(`${rightanswer}`, width / 3 * 3-50, height / 2)
+        text(`${rightanswer}`, width / 3 * 2+50, height / 2)
     }
-    textAlign(CENTER)
+    if(position != 1 ){
+        text(`${one}`, width / 3-75, height / 2)
+    }
+    if(position != 2){
+            text(`${two}`, width/ 2 -10, height / 2)
+    }
+    if(position != 3){
+        text(`${three}`, width /3*2+50, height / 2)
+    }
+    
     textSize(40)
     stroke("yellow")
     fill("yellow")
@@ -66,15 +79,6 @@ function setup() {
     text(`${one1}`, width / 3, height - height / 8 * 6)
     textAlign(LEFT)
     text(`${two1}`, width / 3 * 2, height - height / 8 * 6)
-    if(position != 1 ){
-        text(`${one}`, width / 3-width/4, height / 2)
-    }
-    if(position != 2){
-            text(`${two}`, width/ 2 , height / 2)
-    }
-    if(position != 3){
-        text(`${three}`, width / 3 * 3-50, height / 2)
-    }
 }
 
 // mouseClicked function checks if the user clicked on the correct answer
@@ -85,25 +89,26 @@ function mouseClicked() {
     textSize(40)
     stroke("darkgreen")
     fill("darkgreen")
-    if( position === 1 && mouseX > 0 && mouseX<width /3 ){
+    textAlign(LEFT)
+    if( position === 1 && mouseX > 0 && mouseX<width /3&& mouseY>height/2-20&&mouseY<height/2+20 ){
         text(`${rightanswer} ist richtig!`,width/8,height/8*7)
     }
-    if( position === 2 && mouseX > width/3 && mouseX<width /3*2 ){
+    if( position === 2 && mouseX > width/3 && mouseX<width /3*2&& mouseY>height/2-20&&mouseY<height/2+20 ){
         text(`${rightanswer} ist richtig!`,width/8,height/8*7)
     }
-    if( position === 3 && mouseX > width/3*2 && mouseX<width /3*3 ){
+    if( position === 3 && mouseX > width/3*2 && mouseX<width /3*3&& mouseY>height/2-20&&mouseY<height/2+20 ){
         text(`${rightanswer} ist richtig!`,width/8,height/8*7)}
          fill("red")
          stroke("red")
-    if(position != 1&& mouseX> 0 && mouseX<width/3){
+    if(position != 1&& mouseX> 0 && mouseX<width/3&& mouseY>height/2-20&&mouseY<height/2+20){
         text(`${one} ist falsch!`,width/8,height/8*7)
     }
- if( position != 2 && mouseX > width/3 && mouseX<width /3*2 ){
+ if( position != 2 && mouseX > width/3 && mouseX<width /3*2&& mouseY>height/2-20&&mouseY<height/2+20){
         text(`${two} ist falsch!`,width/8,height/8*7)}
- if( position != 3 && mouseX > width/3*2 && mouseX<width /3*3 ){
+ if( position != 3 && mouseX > width/3*2 && mouseX<width /3*3&& mouseY>height/2-20&&mouseY<height/2+20 ){
         text(`${three} ist falsch!`,width/8,height/8*7)}
 
-
+}
 // mouseMoved function displays mouse coordinates as feedback
 function mouseMoved() {
     // This is a HELPER FUNCTION. It should make finding coordinates
@@ -117,5 +122,4 @@ function mouseMoved() {
     textSize(10);
     textAlign(LEFT, BOTTOM); // Aligns coordinates text to bottom-left
     text(`${mouseX}/${mouseY}`, 5, height - 5); // Displays current mouse coordinates
-}
 }
