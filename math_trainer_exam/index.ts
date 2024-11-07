@@ -52,7 +52,7 @@ function setup() {
         text(`${rightanswer}`, width / 3-50, height / 2)
     }
     if (position === 2) {
-        text(`${rightanswer}`, width/ 3 * 2-50, height / 2)
+        text(`${rightanswer}`, width/ 2 -50, height / 2)
     }
     if (position === 3) {
         text(`${rightanswer}`, width / 3 * 3-50, height / 2)
