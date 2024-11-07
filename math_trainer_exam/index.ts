@@ -12,6 +12,9 @@ let one1 = 0
 let two1 = 0
 let rightanswer = 0
 function setup() {
+    stroke("yellow")
+    noFill()
+    rect(width/2-75,height/2-75,75,75)
     one = Math.floor(random(1, 101))
     two = Math.floor(random(1, 101))
     three = Math.floor(random(1, 101))
@@ -63,12 +66,20 @@ function setup() {
     text(`${one1}`, width / 3, height - height / 8 * 6)
     textAlign(LEFT)
     text(`${two1}`, width / 3 * 2, height - height / 8 * 6)
-    if(position )
+    if(position != 1 ){
+        text(`${one}`, width / 3-50, height / 2)
+    }
+    if(position != 2){
+            text(`${two}`, width/ 3 * 2-50, height / 2)
+    }
+    if(position != 3){
+        text(`${three}`, width / 3 * 3-50, height / 2)
+    }
 }
 
 // mouseClicked function checks if the user clicked on the correct answer
 function mouseClicked() {
-    // <<< TODO: Add your code here
+    if( position = 1,){}
 }
 
 // mouseMoved function displays mouse coordinates as feedback
