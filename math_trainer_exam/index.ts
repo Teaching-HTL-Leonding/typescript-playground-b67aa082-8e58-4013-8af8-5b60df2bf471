@@ -5,7 +5,7 @@
 let one = 0
 let two = 0
 let three = 0
-let position = 0
+let  position = 0
 let operandnumber = 0
 let operand = ""
 let one1 = 0
@@ -67,10 +67,10 @@ function setup() {
     textAlign(LEFT)
     text(`${two1}`, width / 3 * 2, height - height / 8 * 6)
     if(position != 1 ){
-        text(`${one}`, width / 3-50, height / 2)
+        text(`${one}`, width / 3-width/4, height / 2)
     }
     if(position != 2){
-            text(`${two}`, width/ 3 * 2-50, height / 2)
+            text(`${two}`, width/ 2 , height / 2)
     }
     if(position != 3){
         text(`${three}`, width / 3 * 3-50, height / 2)
@@ -79,8 +79,30 @@ function setup() {
 
 // mouseClicked function checks if the user clicked on the correct answer
 function mouseClicked() {
-    if( position = 1,){}
-}
+    fill("black")
+    noStroke()
+    rect(0,height/3*2,width,height)
+    textSize(40)
+    stroke("darkgreen")
+    fill("darkgreen")
+    if( position === 1 && mouseX > 0 && mouseX<width /3 ){
+        text(`${rightanswer} ist richtig!`,width/8,height/8*7)
+    }
+    if( position === 2 && mouseX > width/3 && mouseX<width /3*2 ){
+        text(`${rightanswer} ist richtig!`,width/8,height/8*7)
+    }
+    if( position === 3 && mouseX > width/3*2 && mouseX<width /3*3 ){
+        text(`${rightanswer} ist richtig!`,width/8,height/8*7)}
+         fill("red")
+         stroke("red")
+    if(position != 1&& mouseX> 0 && mouseX<width/3){
+        text(`${one} ist falsch!`,width/8,height/8*7)
+    }
+ if( position != 2 && mouseX > width/3 && mouseX<width /3*2 ){
+        text(`${two} ist falsch!`,width/8,height/8*7)}
+ if( position != 3 && mouseX > width/3*2 && mouseX<width /3*3 ){
+        text(`${three} ist falsch!`,width/8,height/8*7)}
+
 
 // mouseMoved function displays mouse coordinates as feedback
 function mouseMoved() {
@@ -95,4 +117,5 @@ function mouseMoved() {
     textSize(10);
     textAlign(LEFT, BOTTOM); // Aligns coordinates text to bottom-left
     text(`${mouseX}/${mouseY}`, 5, height - 5); // Displays current mouse coordinates
+}
 }
