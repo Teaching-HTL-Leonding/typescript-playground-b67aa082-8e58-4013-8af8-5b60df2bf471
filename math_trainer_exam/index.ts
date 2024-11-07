@@ -44,7 +44,7 @@ function setup() {
     else if (operand === "*") {
         rightanswer = one1 * two1
     }
-    createCanvas(400, 400);
+    createCanvas(400, 800);
     background("black");
 
 
@@ -53,22 +53,22 @@ function setup() {
     stroke("yellow")
     fill("yellow")
     if (position === 1) {
-        text(`${rightanswer}`, width / 3-75, height / 2)
+        text(`${rightanswer}`, width / 3-width/5, height / 2)
     }
     if (position === 2) {
         text(`${rightanswer}`, width/ 2-10, height / 2)
     }
     if (position === 3) {
-        text(`${rightanswer}`, width / 3 * 2+50, height / 2)
+        text(`${rightanswer}`, width / 3 * 2+width/8, height / 2)
     }
     if(position != 1 ){
-        text(`${one}`, width / 3-75, height / 2)
+        text(`${one}`, width / 3-width/5, height / 2)
     }
     if(position != 2){
-            text(`${two}`, width/ 2 -10, height / 2)
+            text(`${two}`, width/ 2 -width/40, height / 2)
     }
     if(position != 3){
-        text(`${three}`, width /3*2+50, height / 2)
+        text(`${three}`, width /3*2+width/8, height / 2)
     }
     
     textSize(40)
@@ -90,22 +90,22 @@ function mouseClicked() {
     stroke("darkgreen")
     fill("darkgreen")
     textAlign(LEFT)
-    if( position === 1 && mouseX > 0 && mouseX<width /3&& mouseY>height/2-20&&mouseY<height/2+20 ){
+    if( position === 1 && mouseX > 0 && mouseX<width /3&& mouseY>height/2-height/10&&mouseY<height/2 ){
         text(`${rightanswer} ist richtig!`,width/8,height/8*7)
     }
-    if( position === 2 && mouseX > width/3 && mouseX<width /3*2&& mouseY>height/2-20&&mouseY<height/2+20 ){
+    if( position === 2 && mouseX > width/3 && mouseX<width /3*2&& mouseY>height/2-height/10&&mouseY<height/2 ){
         text(`${rightanswer} ist richtig!`,width/8,height/8*7)
     }
-    if( position === 3 && mouseX > width/3*2 && mouseX<width /3*3&& mouseY>height/2-20&&mouseY<height/2+20 ){
+    if( position === 3 && mouseX > width/3*2 && mouseX<width /3*3&& mouseY>height/2-height/10&&mouseY<height/2 ){
         text(`${rightanswer} ist richtig!`,width/8,height/8*7)}
          fill("red")
          stroke("red")
-    if(position != 1&& mouseX> 0 && mouseX<width/3&& mouseY>height/2-20&&mouseY<height/2+20){
+    if(position != 1&& mouseX> 0 && mouseX<width/3&& mouseY>height/2-height/10&&mouseY<height/2){
         text(`${one} ist falsch!`,width/8,height/8*7)
     }
- if( position != 2 && mouseX > width/3 && mouseX<width /3*2&& mouseY>height/2-20&&mouseY<height/2+20){
+ if( position != 2 && mouseX > width/3 && mouseX<width /3*2&& mouseY>height/2-height/10&&mouseY<height/2){
         text(`${two} ist falsch!`,width/8,height/8*7)}
- if( position != 3 && mouseX > width/3*2 && mouseX<width /3*3&& mouseY>height/2-20&&mouseY<height/2+20 ){
+ if( position != 3 && mouseX > width/3*2 && mouseX<width /3*3&& mouseY>height/2-height/10&&mouseY<height/2 ){
         text(`${three} ist falsch!`,width/8,height/8*7)}
 
 }
