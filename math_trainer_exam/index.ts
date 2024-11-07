@@ -34,6 +34,10 @@ function setup() {
         two1 = Math.floor(random(1, 101))}
     else{ one1 = Math.floor(random(1, 11))
         two1 = Math.floor(random(1, 11))}
+    if(operand ==="-"&&one1<two1){
+        one1=two1;
+        two1= Math.floor(random(0,one1))
+    }
 
     if (operand === "+") {
         rightanswer = one1 + two1
@@ -44,7 +48,7 @@ function setup() {
     else if (operand === "*") {
         rightanswer = one1 * two1
     }
-    createCanvas(400, 800);
+    createCanvas(400, 400);
     background("black");
 
 
