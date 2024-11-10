@@ -15,12 +15,13 @@ function setup() {
     stroke("yellow")
     noFill()
     rect(width / 2 - 75, height / 2 - 75, 75, 75)
-    one = Math.floor(random(1, 101))
+    one = Math.floor(random(1, 101)) // RS: First minimum requirement solved
     two = Math.floor(random(1, 101))
     three = Math.floor(random(1, 101))
     position = Math.floor(random(1, 4))
     operandnumber = Math.floor(random(1, 4))
 
+    // RS: Second minimum requirement solved with if statements
     if (operandnumber === 1) {
         operand = "+"
     }
@@ -30,6 +31,8 @@ function setup() {
     else if (operandnumber === 3) {
         operand = "*"
     }
+
+    // RS: First and third extra requirements solved
     if (operand === "+" || operand === " -") {
         one1 = Math.floor(random(1, 101))
         two1 = Math.floor(random(1, 101))
@@ -60,6 +63,9 @@ function setup() {
     textSize(40)
     stroke("yellow")
     fill("yellow")
+
+    // RS: This could be greatly simplified (see sample solution)
+    // RS: Extra requirement 2 solved
     if (position === 1) {
         text(`${rightanswer}`, width / 3 - width / 5, height / 2)
     }
@@ -98,6 +104,8 @@ function mouseClicked() {
     stroke("darkgreen")
     fill("darkgreen")
     textAlign(LEFT)
+
+    // RS: This could be greatly simplified (see sample solution)
     if (position === 1 && mouseX > 0 && mouseX < width / 3 && mouseY > height / 2 - height / 10 && mouseY < height / 2) {
         text(`${rightanswer} ist richtig!`, width / 8, height / 8 * 7)
     }
