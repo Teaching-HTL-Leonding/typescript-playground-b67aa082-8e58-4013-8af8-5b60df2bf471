@@ -13,9 +13,11 @@ function mouseMoved() {
   let i = MARGIN
   while(i<SIZE){
     stroke("green")
-    line(i,0,mouseX,mouseY)
-    line(i,SIZE,mouseX,mouseY)
+    line(i,MARGIN,mouseX,mouseY)
+    line(i,SIZE-MARGIN,mouseX,mouseY)
     stroke("yellow")
+    line(MARGIN,i,mouseX,mouseY)
+    line(SIZE-MARGIN,i,mouseX,mouseY)
     
     i += MARGIN
   }
