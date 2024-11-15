@@ -17,10 +17,13 @@ function setup() {
     let i = GRID;            // STEP 1: Initialize the loop variable
     while (i < SIZE) {       // STEP 2: Check the loop condition
         line(i, 0, i, SIZE)
-        line(0,i,SIZE,i); // STEP 3: Do whatever you want to do repeatedly
+        ; // STEP 3: Do whatever you want to do repeatedly
         i += GRID;           // STEP 4: Update the loop variable
     }
 
-    // Part 2: Draw horizontal lines
-    // <<< Write your code here
+for(let j = GRID; j <SIZE ;j += GRID){
+
+    line(0,j,SIZE,j);
+   
+}
 }
