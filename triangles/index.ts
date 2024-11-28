@@ -14,9 +14,9 @@ function setup() {
     noFill();
 
     translate(-SIDE_LENGTH / 2, -HEIGHT / 2)
-    for(let x = 0; x<SIZE ;x += HEIGHT){
+    for (let x = 0; x < SIZE; x += HEIGHT) {
         push()
-        for(let y = 0; y <SIZE+SIDE_LENGTH;y+=SIDE_LENGTH){
+        for (let y = 0; y < SIZE + SIDE_LENGTH; y += SIDE_LENGTH) {
             triangle(0, HEIGHT, SIDE_LENGTH, HEIGHT, SIDE_LENGTH / 2, 0)
             translate(SIDE_LENGTH, 0)
         }
