@@ -13,15 +13,20 @@ function setup() {
     stroke("yellow");
     noFill();
 
-   let x = 0;
-   while(x<SIZE){
-    push()
-    let y = 0
-    while(y<SIZE){triangle(0,HEIGHT,SIDE_LENGTH,HEIGHT,SIDE_LENGTH/2,0)
-    translate(SIDE_LENGTH,0)
-    y += SIDE_LENGTH}
-    pop();
-    translate(0,HEIGHT)
-    x += HEIGHT
-   }
+    translate(-SIDE_LENGTH / 2, -HEIGHT / 2)
+    for(let x = 0; x<SIZE ;x += HEIGHT){
+        push()
+        for(let y = 0; y <SIZE+SIDE_LENGTH;y+=SIDE_LENGTH){
+            triangle(0, HEIGHT, SIDE_LENGTH, HEIGHT, SIDE_LENGTH / 2, 0)
+            translate(SIDE_LENGTH, 0)
+        }
+        pop();
+        translate(0, HEIGHT)
+    }
+
+
+
+
+
 }
+
