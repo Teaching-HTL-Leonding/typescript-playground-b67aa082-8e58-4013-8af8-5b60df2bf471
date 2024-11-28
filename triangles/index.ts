@@ -21,6 +21,7 @@ function setup() {
     translate(SIDE_LENGTH,0)
     y += SIDE_LENGTH}
     x += SIDE_LENGTH
+    pop();
     translate(0,HEIGHT)
    }
 }
