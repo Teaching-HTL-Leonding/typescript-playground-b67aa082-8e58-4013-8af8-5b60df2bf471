@@ -17,11 +17,11 @@ function setup() {
    while(x<SIZE){
     push()
     let y = 0
-    while(y<HEIGHT*9){triangle(0,SIDE_LENGTH,SIDE_LENGTH,SIDE_LENGTH,SIDE_LENGTH/2,0)
+    while(y<SIZE){triangle(0,HEIGHT,SIDE_LENGTH,HEIGHT,SIDE_LENGTH/2,0)
     translate(SIDE_LENGTH,0)
     y += SIDE_LENGTH}
-    x += SIDE_LENGTH
     pop();
     translate(0,HEIGHT)
+    x += HEIGHT
    }
 }
