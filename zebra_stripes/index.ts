@@ -1,21 +1,21 @@
 function setup() {
     const SIZE = 400;  // Size of canvas
     const STRIPE_THICKNESS = 50; // Thickness of the stripes
-    let y1= 0
-    let y2=50
+
     createCanvas(SIZE, SIZE);
-    background("green");
-
-   
-    while(y1<SIZE&& y2<SIZE){
-        noStroke()
-        fill("lime")
-        rect(0,y1,SIZE,STRIPE_THICKNESS)
-        fill("yellow")
-        rect(0,y2,SIZE,STRIPE_THICKNESS)
-
-        y1 += STRIPE_THICKNESS*2
-        y2 += STRIPE_THICKNESS*2
+    background("black");
+noStroke()
+    let j = 0;
+    let i = 0;
+    while(i<SIZE){
+        if(j%2 ==0){
+            fill("lime")
+        }
+        else{
+            fill("yellow")
+        }
+        rect(0,i,SIZE,STRIPE_THICKNESS)
+        i += STRIPE_THICKNESS
+        j++
     }
-    
 }
