@@ -17,13 +17,20 @@ function mouseMoved() {
 
     noFill();
     stroke("aqua");
-let height1 = 0
-let height2 = 5
-for(let x = 0; x<601;x++ ){
-    for( let i = 0;i<50;i += 1){
-        line(0,height1,10,height2)
-        height1 +=10
-        height2 +=10
+    let height1 = 0
+    let height2 = 5
+    for (let x = 0; x < 601; x++) {
+        for (let i = 0; i < 50; i += 1) {
+            line(0, height1, 10, height2)
+            height1 += 10
+            line(10,height2,0,height1)
+            height2 += 10
+        }
+        translate(10, 0)
+        height1 = 0
+        height2 = 5
     }
-    translate(10,0)}
+
+
+
 }
