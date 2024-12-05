@@ -35,7 +35,7 @@ function mouseMoved() {
     for (let x = 0; x < 601; x++) {
         stroke(color, 100, 100);
         for (let i = 0; i < 29; i += 1) {
-            while( width11-width12 != zoom){}
+            //while( width11-width12 != zoom){}
             line(width11, height1, width12, height2)
             height1 += 10
             line(width21, height2, width22, height1)
