@@ -20,19 +20,21 @@ function mouseMoved() {
     fill("black")
     rect(0,285,width,16)
     fill("white")
-    text(`${mouseX} of 601 = ${l}%`,47,295)
-
+    text(`${mouseX} of 601 = ${l}%`,47,296)
+    colorMode(HSB)
     textSize(12)
     noFill();
-    stroke("aqua");
     let height1 = 0
     let height2 = 5
+    let color = 0
     for (let x = 0; x < 601; x++) {
+    stroke(color,100,100);
         for (let i = 0; i < 29; i += 1) {
             line(0, height1, 10, height2)
             height1 += 10
             line(10,height2,0,height1)
             height2 += 10
+        color = (color+0.2)%360
         }
         translate(10, 0)
         height1 = 0
