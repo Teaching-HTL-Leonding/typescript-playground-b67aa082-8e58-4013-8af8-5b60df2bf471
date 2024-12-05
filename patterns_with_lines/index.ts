@@ -20,7 +20,8 @@ function mouseMoved() {
     fill("black")
     rect(0, 285, width, 16)
     fill("white")
-    text(`${mouseX} of 601 = ${l}%`, 47, 296)
+    textAlign(LEFT)
+    text(`${mouseX} of 601 = ${l}%`, 0, 296)
     colorMode(HSB)
     textSize(12)
     noFill();
