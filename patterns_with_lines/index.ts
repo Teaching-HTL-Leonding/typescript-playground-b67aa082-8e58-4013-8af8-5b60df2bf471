@@ -19,11 +19,11 @@ function mouseMoved() {
     stroke("aqua");
 let height1 = 0
 let height2 = 5
-for(let x = 0; x<50;x++ ){
-    for( let i = 0;i<601;i += 1){
-    translate(10,0)}
+for(let x = 0; x<601;x++ ){
+    for( let i = 0;i<50;i += 1){
         line(0,height1,10,height2)
         height1 +=10
-        height2+=10
+        height2 +=10
     }
+    translate(10,0)}
 }
