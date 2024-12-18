@@ -1,6 +1,6 @@
 const WIDTH = 500;
 const HEIGHT = 300;
-const MARGIN = 50;
+let MARGIN = 50;
 
 const wordToGuess = "apple";
 
@@ -14,7 +14,7 @@ function setup() {
   for(let i = 0; i<wordToGuess.length; i++){
     let x = random(MARGIN,width-MARGIN)
     let y = random(MARGIN,height-MARGIN)
-    const textsize = random(50,150)
+    let textsize = random(50,150)
     let color = random(0,360)
     let angle = random(90,-90)
     fill(color,100,100)
