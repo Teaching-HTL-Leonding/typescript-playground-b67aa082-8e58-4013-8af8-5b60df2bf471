@@ -10,13 +10,13 @@ const playerNumbers: number[] = [1, 17, 22, 23, 20, 6, 15, 5, 11, 7, 9];
 
 // First names
 const firstNames: string[] = [
-  "Thibaut", "Lucas", "Antonio", "Ferland", "Fran",
+  "Herbert", "Silke", "Antonio", "Ferland", "Fran",
   "Eduardo", "Federico", "Jude", "Rodrygo", "Vinícius", "Kylian"
 ];
 
 // Last names
 const lastNames: string[] = [
-  "Courtois", "Vázquez", "Rüdiger", "Mendy", "García",
+  "Aitenpichler", "Schmidt", "Rüdiger", "Mendy", "García",
   "Camavinga", "Valverde", "Bellingham", "Goes", "Júnior", "Mbappé"
 ];
 
