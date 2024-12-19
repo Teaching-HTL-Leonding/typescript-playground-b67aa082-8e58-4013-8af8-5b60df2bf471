@@ -1,5 +1,5 @@
 function setup() {
-    createCanvas(400, 400);
+    createCanvas(1000, 1000);
     background("white");
     noFill();
 
@@ -19,6 +19,8 @@ function setup() {
     scale(4)
     strokeWeight(3/4)
     circle(50,50,50)
-    pop();
-    // <<< Add your code here
+    pop()
+
+
+   
 }
