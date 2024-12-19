@@ -64,13 +64,15 @@ function setup() {
     noStroke();
     rect(10, 5, 80, 60);
     
-       fill("yellow")
-    textAlign(LEFT);
+    textAlign(RIGHT);
     textStyle(NORMAL);
     textSize(4)
+    fill("orange")
     for( let i = 0; i < playerNumbers.length; i++ ){
-       text(`${i+1} `, 25, 12 + i * 5)
+       text(`${i+1} `, 30, 12 + i * 5)
     }
+       fill("yellow")
+    textAlign(LEFT);
     for(let i = 0; i< playerNumbers.length; i++){
       text(`${firstNames[i]} ${lastNames[i]}`, 33, 12 + i * 5);
     }
