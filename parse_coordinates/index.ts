@@ -8,25 +8,6 @@ function setup() {
     noFill();
     stroke("black");
     strokeWeight(3);
-    let x = 0
-    let y = 0
-    let coords = ""
-    for(let i = 0; i<circles.length;i++){
-        switch(circles[i]){
-            case ",":
-            x = parseInt(coords)
-            coords = ""
-            break;
-            case " ":
-            y = parseInt(coords) 
-            circle(x,y,40)
-            coords = ""
-            break;
-            default:
-            coords = coords + circles[i]
 
-        }
-    }
-    y = parseInt(coords)
-    circle(x,y,40)
+    // <<< Add your code here
 }
