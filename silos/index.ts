@@ -61,7 +61,7 @@ function draw() {
     if (ratio > SILO_HEIGHT) {
       
     ratio = SILO_HEIGHT;}
-    if(silos[i] > CRICITAL_FILL){
+    if(silos[i] >= CRICITAL_FILL){
       fill("red")
     }
     else{fill("lime")}
@@ -80,7 +80,18 @@ function draw() {
     textSize(20);
     text(silos[i], SILO_WIDTH / 2, 10);
     pop();
+  
+  push();
+    translate(silos_x[i], BUTTON_TOP);
+    fill("yellow");
+    
+    rect(0, 0, BUTTON_SIZE, BUTTON_SIZE);
+    
+    rect(BUTTON_SIZE + BUTTON_GAP, 0, BUTTON_SIZE, BUTTON_SIZE);
+    pop();
   }
+
+
 }
 
 function mouseClicked() {
