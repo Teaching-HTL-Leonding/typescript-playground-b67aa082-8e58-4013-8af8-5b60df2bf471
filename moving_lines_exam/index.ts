@@ -53,23 +53,16 @@ function setup() {
         lineEndY.push(lineEndY[0] + random(-40, 40));
         lineEndX.push(lineEndX[0] + random(-40, -40))
 
-
-
         lineStartDx.push(lineStartDx[0]);
         lineStartDy.push(lineStartDy[0]);
         lineEndDx.push(lineEndDx[0]);
         lineEndDy.push(lineEndDy[0]);
-
 
         lineColor.push(random(minColor, maxColor));
     }
 }
 
 function draw() {
-
-
-
-
     background("black");
     stroke("white")
     noFill()
@@ -80,18 +73,15 @@ function draw() {
     rect(50, 0, 50, 50)
     for (let i = 0; i < lines; i++) {
         push();
-
         stroke(lineColor[i], 100, 100);
         strokeWeight(2);
         line(lineStartX[i], lineStartY[i], lineEndX[i], lineEndY[i]);
 
-        // Move start and end point
         lineStartX[i] += lineStartDx[i];
         lineStartY[i] += lineStartDy[i];
         lineEndX[i] += lineEndDx[i];
         lineEndY[i] += lineEndDy[i];
 
-        // Reverse direction when edge has been reached
         if (lineStartX[i] < 0 || lineStartX[i] > width) {
             lineStartDx[i] = -lineStartDx[i];
         }
@@ -105,7 +95,6 @@ function draw() {
         if (lineEndY[i] < 0 || lineEndY[i] > height) {
             lineEndDy[i] = -lineEndDy[i];
         }
-
         pop();
     }
 }
@@ -117,11 +106,11 @@ function mouseClicked() {
         lineEndY.push(lineEndY[0] + random(-40, 40));
         lineEndX.push(lineEndX[0] + random(-40, -40))
 
-
         lineStartDx.push(lineStartDx[0]);
         lineStartDy.push(lineStartDy[0]);
         lineEndDx.push(lineEndDx[0]);
         lineEndDy.push(lineEndDy[0]);
+
         lineColor.push(random(minColor, maxColor));
     }
     if (mouseX > 50 && mouseX < 100 && mouseY > 0 && mouseY < 50 && lines > 1) {
@@ -131,11 +120,11 @@ function mouseClicked() {
         lineEndX.splice(lines);
         lineEndY.splice(lines);
 
-
         lineStartDx.splice(lines);
         lineStartDy.splice(lines);
         lineEndDx.splice(lines);
         lineEndDy.splice(lines);
+
         lineColor.splice(lines);
     }
 
