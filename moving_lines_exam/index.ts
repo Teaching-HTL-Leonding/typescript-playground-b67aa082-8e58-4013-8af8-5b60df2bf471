@@ -23,7 +23,12 @@ let maxColor = 360;             // Upper bound of random hue value
 function setup() {
     createCanvas(500, 500);
     colorMode(HSB);
-
+    let num = 0
+    for(let i = 0; i <CONFIGURATION.length){
+        if(CONFIGURATION[i] === ";"){
+            lines = num
+        }
+    }
 
 
     for (let i = 0; i < lines; i++) {
