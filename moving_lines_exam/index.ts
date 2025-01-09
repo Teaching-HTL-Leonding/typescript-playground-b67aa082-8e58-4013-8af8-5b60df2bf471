@@ -11,24 +11,31 @@ let lineStartY: number[] = [];
 let lineEndX: number[] = [];       // End coordinates of line
 let lineEndY: number[] = [];
 let lineColor: number[] = [];
-let lines: number = 3
+let lines: number = 0
 let lineStartDx: number[] = [];    // Movement of start point per frame in X and Y direction
 let lineStartDy: number[] = [];
 let lineEndDx: number[] = [];      // Movement of end point per frame in X and Y direction
 let lineEndDy: number[] = [];
 
 let minColor = 0;               // Lower bound of random hue value
-let maxColor = 360;             // Upper bound of random hue value
+let maxColor = 0;             // Upper bound of random hue value
 
 function setup() {
     createCanvas(500, 500);
     colorMode(HSB);
     let num = 0
-    for(let i = 0; i <CONFIGURATION.length){
-        if(CONFIGURATION[i] === ";"){
+    for (let i = 0; i < CONFIGURATION.length; i++) {
+        if (CONFIGURATION[i] === ";") {
             lines = num
+            num = 0
         }
-    }
+        else if (CONFIGURATION[i] === "-") {
+            minColor = num
+            num = 0
+        }
+        else { num = num * 10 + parseInt(CONFIGURATION[i]) }
+     }
+     maxColor = num
 
 
     for (let i = 0; i < lines; i++) {
@@ -106,7 +113,7 @@ function mouseClicked() {
         lineStartDy.push(random(0, 5));
         lineEndDx.push(random(0, 5));
         lineEndDy.push(random(0, 5));
-         lineColor.push(random(minColor, maxColor));
+        lineColor.push(random(minColor, maxColor));
     }
     if (mouseX > 50 && mouseX < 100 && mouseY > 0 && mouseY < 50 && lines > 1) {
         lines = lines - 1
@@ -120,7 +127,7 @@ function mouseClicked() {
         lineStartDy.splice(lines);
         lineEndDx.splice(lines);
         lineEndDy.splice(lines);
-         lineColor.push(random(minColor, maxColor));
+        lineColor.splice(lines);
     }
 
 }
