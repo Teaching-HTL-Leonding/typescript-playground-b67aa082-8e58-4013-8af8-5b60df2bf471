@@ -34,24 +34,33 @@ function setup() {
             num = 0
         }
         else { num = num * 10 + parseInt(CONFIGURATION[i]) }
-     }
-     maxColor = num
+    }
+    maxColor = num
 
 
-    for (let i = 0; i < lines; i++) {
-        // Set random start and end position
-        lineStartX.push(random(50, 450));
-        lineStartY.push(random(50, 450));
-        lineEndX.push(random(50, 450));
-        lineEndY.push(random(50, 450));
+    lineStartX.push(random(50, 450));
+    lineStartY.push(random(50, 450));
+    lineEndY.push(random(50, 450));
+    lineEndX.push(random(50, 450));
 
-        // Set random movement
-        lineStartDx.push(random(0, 5));
-        lineStartDy.push(random(0, 5));
-        lineEndDx.push(random(0, 5));
-        lineEndDy.push(random(0, 5));
+    lineStartDx.push(random(0, 5));
+    lineStartDy.push(random(0, 5));
+    lineEndDx.push(random(0, 5));
+    lineEndDy.push(random(0, 5));
+    for (let i = 0; i < lines - 1; i++) {
+        lineStartX.push(lineStartX[0] + random(-40, 40));
+        lineStartY.push(lineStartY[0] + random(-40, 40));
+        lineEndY.push(lineEndY[0] + random(-40, 40));
+        lineEndX.push(lineEndX[0] + random(-40, -40))
 
-        // Set random color
+
+
+        lineStartDx.push(lineStartDx[0]);
+        lineStartDy.push(lineStartDy[0]);
+        lineEndDx.push(lineEndDx[0]);
+        lineEndDy.push(lineEndDy[0]);
+
+
         lineColor.push(random(minColor, maxColor));
     }
 }
@@ -103,16 +112,16 @@ function draw() {
 function mouseClicked() {
     if (mouseX > 0 && mouseX < 50 && mouseY > 0 && mouseY < 50) {
         lines = lines + 1
-        lineStartX.push(random(50, 450));
-        lineStartY.push(random(50, 450));
-        lineEndX.push(random(50, 450));
-        lineEndY.push(random(50, 450));
+        lineStartX.push(lineStartX[0] + random(-40, 40));
+        lineStartY.push(lineStartY[0] + random(-40, 40));
+        lineEndY.push(lineEndY[0] + random(-40, 40));
+        lineEndX.push(lineEndX[0] + random(-40, -40))
 
 
-        lineStartDx.push(random(0, 5));
-        lineStartDy.push(random(0, 5));
-        lineEndDx.push(random(0, 5));
-        lineEndDy.push(random(0, 5));
+        lineStartDx.push(lineStartDx[0]);
+        lineStartDy.push(lineStartDy[0]);
+        lineEndDx.push(lineEndDx[0]);
+        lineEndDy.push(lineEndDy[0]);
         lineColor.push(random(minColor, maxColor));
     }
     if (mouseX > 50 && mouseX < 100 && mouseY > 0 && mouseY < 50 && lines > 1) {
