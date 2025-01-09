@@ -100,16 +100,16 @@ function mouseClicked(){
     }
     if(mouseX>50&&mouseX<100&&mouseY>0&&mouseY<50){
         lines = lines-1
-    lineStartX.splice(random(50, 450));
-    lineStartY.splice(random(50, 450));
-    lineEndX.splice (random(50, 450));
-    lineEndY.splice (random(50, 450));
+    lineStartX.splice(lines-1);
+    lineStartY.splice(lines-1);
+    lineEndX.splice (lines-1);
+    lineEndY.splice (lines-1);
 
    
-    lineStartDx.splice(random(0, 5));
-    lineStartDy.splice(random(0, 5));
-    lineEndDx.splice (random(0, 5));
-    lineEndDy.splice (random(0, 5));
+    lineStartDx.splice(lines-1);
+    lineStartDy.splice(lines-1);
+    lineEndDx.splice (lines-1);
+    lineEndDy.splice (lines-1);
     }
 
 }
