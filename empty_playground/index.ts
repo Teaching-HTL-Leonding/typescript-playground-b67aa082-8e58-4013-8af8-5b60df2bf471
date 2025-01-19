@@ -1,31 +1,29 @@
+
 let squares: boolean[] = [false,false,false,false,false,false,false,false,false]
 let randomnum = 0
 let time = 0
 let timer = 60
 function setup() {
-createCanvas(500,600)
+createCanvas(600,700)
 randomnum = Math.round(random(1,10))
-for(let i = 0; i < squares.length;i++){
-    squares[i] = true
-}
+squares[randomnum] = true
 }
 
 function draw() {
     background("black")
-    // lines
-    for( let i = 0;i< 4; i++) {
-        
-    }
-
-    //timer 
-    if(time === 1){
-        timer = (60000-millis())/1000
-    }
+    timer = (60000-millis())/1000
     fill("white")
-    text(`${Math.round(timer)}`,width/2,100)
-    if(timer <= 0){
-        time = 2
-    }
+    text(`${Math.round(timer)}`,width/2,75)
+    translate(0,100)
+    push()
+    stroke("white")
+    for(let i = 0; i<3;i++){
+    line(0,i*200,width,i*200)
+    line(i*200,0,i*200,width)}
+    pop()
+     
+
+
 
 
 
@@ -33,7 +31,5 @@ function draw() {
 }
 function mouseClicked(){
 
-if(time === 0){
-    time = 1
-}
+
 }
