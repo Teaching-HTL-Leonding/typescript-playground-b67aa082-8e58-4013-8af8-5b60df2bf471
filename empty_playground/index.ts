@@ -18,8 +18,8 @@ function draw() {
     timer = (60000-millis())/1000
     fill("white")
     text(`${Math.round(timer)}`,width/2,75)
-    text(`${Math.round(accuracy)}%`,50,75)
-    text(`${hits}`,550,75)
+    text(`accuracy:${Math.round(accuracy)}%`,50,75)
+    text(`score:${hits}`,550,75)
     translate(0,100)
     push()
     stroke("white")
@@ -42,11 +42,6 @@ function draw() {
       rect(x, y, 200, 200)
     }
   }
-
-
-
-
-
 
 }
 function mouseClicked(){
