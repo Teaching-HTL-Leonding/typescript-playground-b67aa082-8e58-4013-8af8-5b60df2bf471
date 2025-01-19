@@ -3,6 +3,10 @@ let squares: boolean[] = [false,false,false,false,false,false,false,false,false]
 let randomnum = 0
 let time = 0
 let timer = 60
+let hits = 0
+let misses = 0
+let accuracy = 0
+let totalshots = 0
 function setup() {
 createCanvas(600,700)
 randomnum = Math.floor(random(0,9))
@@ -14,6 +18,8 @@ function draw() {
     timer = (60000-millis())/1000
     fill("white")
     text(`${Math.round(timer)}`,width/2,75)
+    text(`${Math.round(accuracy)}%`,50,75)
+    text(`${hits}`,550,75)
     translate(0,100)
     push()
     stroke("white")
@@ -44,15 +50,19 @@ function draw() {
 
 }
 function mouseClicked(){
-    let col = Math.floor(200/mouseX)
-    let row = Math.floor(200/mouseY)
+    let col = Math.floor(mouseX/200)
+    let row = Math.floor(mouseY/200)
     let index = row * 3 + col
+    totalshots++
 
 
   if (index ===randomnum) {
     squares[randomnum] = false // Deactivate the old square
     randomnum = Math.floor(random(0, 9)) // Choose a new random square
     squares[randomnum] = true // Activate the new square
+    hits++
   }
+  else{misses++}
+  accuracy = hits/totalshots * 100
 
 }
