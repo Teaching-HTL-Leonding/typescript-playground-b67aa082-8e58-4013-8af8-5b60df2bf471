@@ -43,7 +43,7 @@ function drawXLabels() {
  for(let i = 0; i<13; i++){
   push()
 translate(50,185)
-line(25*i,-5,25*i,5)
+line(30*i,-5,30*i,5)
   pop()
 
  }
