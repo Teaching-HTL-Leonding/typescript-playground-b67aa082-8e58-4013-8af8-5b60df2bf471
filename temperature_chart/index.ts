@@ -55,6 +55,7 @@ line(30*i,-5,30*i,5)
  for(let i = 0; i<months.length; i++){
   push()
   translate(50,185)
+  textSize(9)
   text(`${months[i]}`,5+i*30,-10)
   pop()
  }
