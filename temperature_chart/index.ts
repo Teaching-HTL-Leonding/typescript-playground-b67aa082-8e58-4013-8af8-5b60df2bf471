@@ -65,7 +65,7 @@ function drawTemperatures(temperatures: number[]) {
   for(let i = 0; i<temperatures.length; i++){
   push()
   translate(50,185)
-  fill("yellow")
+  fill("gold")
   noStroke()
   rect(5+30*i,-1.5,20,-temperatures[i]*5)
   pop()
