@@ -50,5 +50,10 @@ line(30*i,-5,30*i,5)
 }
 
 function drawTemperatures(temperatures: number[]) {
-  // <<< Add code to draw the temperatures here
+  for(let i = 0; i<1; i++){
+  push()
+  translate(50,185)
+  
+  pop()
+  }
 }
