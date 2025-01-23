@@ -17,6 +17,7 @@ function setup() {
   drawAxes()
   drawYLabels()
   drawXLabels()
+  drawTemperatures()
 }
 
 function drawAxes() {
@@ -49,11 +50,13 @@ line(30*i,-5,30*i,5)
  }
 }
 
-function drawTemperatures(temperatures: number[]) {
-  for(let i = 0; i<1; i++){
+function drawTemperatures() {
+  for(let i = 0; i<AVG_TEMP_JOHANNESBURG.length; i++){
   push()
   translate(50,185)
-  
+  fill("yellow")
+  noStroke()
+  rect(5+30*i,-1.5,20,-AVG_TEMP_JOHANNESBURG[i]*5)
   pop()
   }
 }
