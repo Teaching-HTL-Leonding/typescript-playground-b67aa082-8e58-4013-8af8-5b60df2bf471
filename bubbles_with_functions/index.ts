@@ -1,3 +1,4 @@
+
 const circles_x: number[] = [];
 const circles_y: number[] = [];
 const circles_diameter: number[] = [];
@@ -25,9 +26,7 @@ function draw() {
 }
 
 function addRandomCircle(){
-
-    circles_x.push(random(0,width))
+  circles_x.push(random(0,width))
   circles_y.push(random(0,height))
   circles_diameter.push(random(10,50))
- 
 }
