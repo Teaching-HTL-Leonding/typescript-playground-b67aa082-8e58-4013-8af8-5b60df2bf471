@@ -4,13 +4,14 @@ const circles_diameter: number[] = [];
 
 let waiting_time = 3000;
 let circle_interval: number;
-let level_interval: number;
+let interval: number;
 
 let points = 0;
 
 function setup() {
   createCanvas(300, 300);
   addRandomCircle()
+  interval = setInterval(addRandomCircle,waiting_time)
 
 }
 
