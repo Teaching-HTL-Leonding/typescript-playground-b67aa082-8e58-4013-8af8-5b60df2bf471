@@ -3,7 +3,7 @@ const circles_x: number[] = [];
 const circles_y: number[] = [];
 const circles_diameter: number[] = [];
 
-let waiting_time = 30000;
+let waiting_time = 3000;
 let circle_interval: number;
 let interval: number;
 
@@ -18,7 +18,6 @@ function setup() {
 
 function draw() {
   background("black");
-  isInside()
  for(let i = 0; i<circles_x.length; i++){
 
   circle(circles_x[i],circles_y[i],circles_diameter[i])
@@ -31,14 +30,12 @@ function addRandomCircle(){
   circles_diameter.push(random(10,50))
 }
 
-function isInside(x: number, y: number, circle_index: number){
-  for(let i = 0; i<circles_x.length;i++){
-    push()
-    translate(circles_x[i],circles_y[i])
-    if(Math.sqrt(mouseX^2 +mouseY^2)<=circles_diameter[i])
-    circles_diameter.splice[i]
-    circles_x.splice[i]
-    circles_y.splice[i]
-    pop()
-  }
+function mouseClicked() {
+  for (let i = 0; i <circles_x.length; i++) {
+   let distance = Math.sqrt((mouseX - circles_x[i])**2 + (mouseY - circles_y[i])**2);
+    if (distance <= circles_diameter[i]/2) {
+   
+      circles_x.splice(i,1);
+      circles_y.splice(i,1);
+      circles_diameter.splice(i,1);}}
 }
