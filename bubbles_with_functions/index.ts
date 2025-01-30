@@ -10,7 +10,6 @@ let points = 0;
 
 function setup() {
   createCanvas(300, 300);
-
   addRandomCircle()
 
 }
@@ -19,14 +18,15 @@ function draw() {
   background("black");
 
  for(let i = 0; i<circles_x.length; i++){
-  addRandomCircle()
+
+  circle(circles_x[i],circles_y[i],circles_diameter[i])
  }
 }
 
 function addRandomCircle(){
-  let lastindex = circles_x.length-1
+
     circles_x.push(random(0,width))
   circles_y.push(random(0,height))
   circles_diameter.push(random(10,50))
-  circle(circles_x[lastindex],circles_y[lastindex],circles_diameter[lastindex])
+ 
 }
