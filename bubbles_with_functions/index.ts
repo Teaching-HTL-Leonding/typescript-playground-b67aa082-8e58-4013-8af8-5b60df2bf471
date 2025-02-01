@@ -30,6 +30,15 @@ function draw() {
   text(points, 10, 30)
   if (circles_x.length >= 10) {
     clearInterval(circle_interval)
+    push()
+    background("black")
+    textSize(20)
+    fill("lightgreen")
+    textAlign(LEFT)
+    text(`GAME OVER
+    points:${points}`,width/3,height/2)
+    pop()
+    noLoop()
   }
 }
 
