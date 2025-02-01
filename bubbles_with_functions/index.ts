@@ -13,9 +13,15 @@ function setup() {
   createCanvas(300, 300);
   addRandomCircle()
   circle_interval = setInterval(addRandomCircle, waiting_time)
+  level_interval = (nextLevel(), 10000)
+}
+function nextLevel(){
+clearInterval(circle_interval)
+waiting_time /= 2
+circle_interval = setInterval(addRandomCircle,waiting_time)
+
 
 }
-
 function draw() {
   background("black");
   for (let i = 0; i < circles_x.length; i++) {
