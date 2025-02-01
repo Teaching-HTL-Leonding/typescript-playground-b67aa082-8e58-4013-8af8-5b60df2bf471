@@ -41,8 +41,8 @@ function addRandomCircle(){
 
 function mouseClicked() {
   for (let i = 0; i <circles_x.length; i++) {
-   let distance = Math.sqrt((mouseX - circles_x[i])**2 + (mouseY - circles_y[i])**2);
-    if (distance <= circles_diameter[i]/2) {
+ ;
+    if (isInside(i)) {
    
       circles_x.splice(i,1);
       circles_y.splice(i,1);
@@ -50,4 +50,11 @@ function mouseClicked() {
       points++
       }
       }
+}
+
+
+function isInside(circleindex:number) :boolean{
+
+const distance = Math.sqrt((mouseX - circles_x[circleindex])**2 + (mouseY - circles_y[circleindex])**2)
+return distance <= circles_diameter[circleindex]/2
 }
