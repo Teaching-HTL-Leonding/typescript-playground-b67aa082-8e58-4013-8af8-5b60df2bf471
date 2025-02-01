@@ -15,10 +15,10 @@ function setup() {
   circle_interval = setInterval(addRandomCircle, waiting_time)
   level_interval = setInterval(nextLevel, 10000)
 }
-function nextLevel(){
-clearInterval(circle_interval)
-waiting_time /= 2
-circle_interval = setInterval(addRandomCircle,waiting_time)
+function nextLevel() {
+  clearInterval(circle_interval)
+  waiting_time /= 2
+  circle_interval = setInterval(addRandomCircle, waiting_time)
 
 
 }
@@ -42,7 +42,7 @@ function draw() {
     fill("lightgreen")
     textAlign(LEFT)
     text(`GAME OVER
-    points:${points}`,width/3,height/2)
+    points:${points}`, width / 3, height / 2)
     pop()
     noLoop()
   }
