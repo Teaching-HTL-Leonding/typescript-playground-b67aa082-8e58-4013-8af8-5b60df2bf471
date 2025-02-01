@@ -13,7 +13,7 @@ function setup() {
   createCanvas(300, 300);
   addRandomCircle()
   circle_interval = setInterval(addRandomCircle, waiting_time)
-  level_interval = (nextLevel(), 10000)
+  level_interval = setInterval(nextLevel, 10000)
 }
 function nextLevel(){
 clearInterval(circle_interval)
