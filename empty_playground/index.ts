@@ -1,63 +1,73 @@
+const circles_x: number[] = [];
+const circles_y: number[] = [];
+const circles_diameter: number[] = [];
 
-let squares: boolean[] = [false,false,false,false,false,false,false,false,false]
-let randomnum = 0
-let time = 0
-let timer = 60
-let hits = 0
-let misses = 0
-let accuracy = 0
-let totalshots = 0
+let waiting_time = 3000;
+let circle_interval: number;
+let level_interval: number;
+
+let points = 0;
+
 function setup() {
-createCanvas(600,700)
-randomnum = Math.floor(random(0,9))
-squares[randomnum] = true
+  createCanvas(300, 300);
+  addRandomCircle()
+  circle_interval = setInterval(addRandomCircle, waiting_time)
+  level_interval = setInterval(nextLevel, 10000)
+}
+function nextLevel() {
+  clearInterval(circle_interval)
+  waiting_time /= 2
+  circle_interval = setInterval(addRandomCircle, waiting_time)
+
+
+}
+function draw() {
+  background("black");
+  for (let i = 0; i < circles_x.length; i++) {
+    noFill()
+    strokeWeight(2)
+    stroke("white")
+    circle(circles_x[i], circles_y[i], circles_diameter[i])
+  }
+  textSize(20)
+  fill("white")
+  noStroke()
+  text(points, 10, 30)
+  if (circles_x.length >= 10) {
+    clearInterval(circle_interval)
+    push()
+    background("black")
+    textSize(20)
+    fill("lightgreen")
+    textAlign(LEFT)
+    text(`GAME OVER
+    points:${points}`, width / 3, height / 2)
+    pop()
+    noLoop()
+  }
 }
 
-function draw() {
-    background("black")
-    timer = (60000-millis())/1000
-    fill("white")
-    text(`${Math.round(timer)}`,width/2,75)
-    text(`accuracy:${Math.round(accuracy)}%`,50,75)
-    text(`score:${hits}`,550,75)
-    translate(0,100)
-    push()
-    stroke("white")
-    for(let i = 0; i<3;i++){
-    line(0,i*200,width,i*200)
-    line(i*200,0,i*200,width)}
-    pop()
-  for (let row = 0; row < 3; row++) {
-    for (let col = 0; col < 3; col++) {
-      let index = row * 3 + col
-      let x = col * 200
-      let y = row * 200
+function addRandomCircle() {
+  circles_x.push(random(0, width))
+  circles_y.push(random(0, height))
+  circles_diameter.push(random(10, 50))
+}
 
-
-      if (squares[index]) {
-        fill("red") // Active square color
-      } else {
-        fill("black") // Inactive square color
-      }
-      rect(x, y, 200, 200)
+function mouseClicked() {
+  for (let i = 0; i < circles_x.length; i++) {
+    ;
+    if (isInside(i)) {
+      circles_x.splice(i, 1);
+      circles_y.splice(i, 1);
+      circles_diameter.splice(i, 1);
+      points++
     }
   }
-
 }
-function mouseClicked(){
-    let col = Math.floor(mouseX/200)
-    let row = Math.floor(mouseY/200)
-    let index = row * 3 + col
-    totalshots++
 
 
-  if (index ===randomnum) {
-    squares[randomnum] = false // Deactivate the old square
-    randomnum = Math.floor(random(0, 9)) // Choose a new random square
-    squares[randomnum] = true // Activate the new square
-    hits++
-  }
-  else{misses++}
-  accuracy = hits/totalshots * 100
+function isInside(circleindex: number): boolean {
 
+  const distance = Math.sqrt((mouseX - circles_x[circleindex]) ** 2 + (mouseY - circles_y[circleindex]) ** 2)
+  return distance <= circles_diameter[circleindex] / 2
 }
