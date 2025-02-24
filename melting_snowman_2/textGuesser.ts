@@ -12,12 +12,12 @@
  */
 function getInitialCurrentWord(wordToGuess: string): string {
     let temp = ""
-    for(let i = 0; i<wordToGuess.length;i++){
-        if(wordToGuess[i] !==" "){
-            temp = temp +"_"
+    for (let i = 0; i < wordToGuess.length; i++) {
+        if (wordToGuess[i] !== " ") {
+            temp = temp + "_"
         }
-        else if(wordToGuess[i] ===" "){
-            temp = temp +" "
+        else if (wordToGuess[i] === " ") {
+            temp = temp + " "
         }
     }
 
@@ -39,11 +39,11 @@ function getInitialCurrentWord(wordToGuess: string): string {
  */
 function guessKey(key: string, wordToGuess: string, currentWordStatus: string): string {
     let temp = ""
-    for(let i = 0; i<wordToGuess.length;i++){
-        if(key === wordToGuess[i]){
+    for (let i = 0; i < wordToGuess.length; i++) {
+        if (key === wordToGuess[i]) {
             temp += wordToGuess[i]
         }
-        else{
+        else {
             temp += currentWordStatus[i]
         }
     }
@@ -68,22 +68,23 @@ function guessKey(key: string, wordToGuess: string, currentWordStatus: string): 
 function drawResult(win: boolean, wrongGuesses: number) {
     textSize(65);
     textFont(font)
-    if(win === true){
+    textAlign(CENTER, CENTER)
+    if (win === true) {
         fill("green")
     }
-    if(win === false){
+    if (win === false) {
         fill("red")
     }
-    if(win === true && wrongGuesses === 0){
-    text("No wrong guesses!", width/2,height/2)
+    if (win === true && wrongGuesses === 0) {
+        text("No wrong guesses!", width / 2, height / 2)
     }
-    else if(win === true && wrongGuesses === 1){
-    text("One wrong guess!", width/2,height/2)
+    else if (win === true && wrongGuesses === 1) {
+        text("One wrong guess!", width / 2, height / 2)
     }
-    else if(win === true && wrongGuesses >= 2){
-    text(`${wrongGuesses}wrong guesses`, width/2,height/2)
+    else if (win === true && wrongGuesses >= 2) {
+        text(`${wrongGuesses}wrong guesses`, width / 2, height / 2)
     }
-    else if(win === false){
-     text(`Game Over`, width/2,height/2)
+    else if (win === false) {
+        text(`Game Over`, width / 2, height / 2)
     }
 }
