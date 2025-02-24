@@ -11,9 +11,17 @@
  * is a space, the corresponding character in the return value must be a space.
  */
 function getInitialCurrentWord(wordToGuess: string): string {
-    // <<< Add code here
+    let temp = ""
+    for(let i = 0; i<wordToGuess.length;i++){
+        if(wordToGuess[i] !==" "){
+            temp = temp +"_"
+        }
+        else if(wordToGuess[i] ===" "){
+            temp = temp +" "
+        }
+    }
 
-    return ""; // Placeholder, remove this line once you added your code
+    return temp; // Placeholder, remove this line once you added your code
 }
 
 /**
@@ -30,9 +38,17 @@ function getInitialCurrentWord(wordToGuess: string): string {
  * characters in currentWordStatus must be revealed.
  */
 function guessKey(key: string, wordToGuess: string, currentWordStatus: string): string {
-    // <<< Add code here
+    let temp = ""
+    for(let i = 0; i<wordToGuess.length;i++){
+        if(key === wordToGuess[i]){
+            temp += wordToGuess[i]
+        }
+        else{
+            temp += currentWordStatus[i]
+        }
+    }
 
-    return ""; // Placeholder, remove this line once you added your code
+    return temp; // Placeholder, remove this line once you added your code
 }
 
 /**
@@ -50,5 +66,24 @@ function guessKey(key: string, wordToGuess: string, currentWordStatus: string): 
  * * "n wrong guesses" otherwise ("n" is number of wrong guesses).
  */
 function drawResult(win: boolean, wrongGuesses: number) {
-    // <<< Add code here
+    textSize(65);
+    textFont(font)
+    if(win === true){
+        fill("green")
+    }
+    if(win === false){
+        fill("red")
+    }
+    if(win === true && wrongGuesses === 0){
+    text("No wrong guesses!", width/2,height/2)
+    }
+    else if(win === true && wrongGuesses === 1){
+    text("One wrong guess!", width/2,height/2)
+    }
+    else if(win === true && wrongGuesses >= 2){
+    text(`${wrongGuesses}wrong guesses`, width/2,height/2)
+    }
+    else if(win === false){
+     text(`Game Over`, width/2,height/2)
+    }
 }
