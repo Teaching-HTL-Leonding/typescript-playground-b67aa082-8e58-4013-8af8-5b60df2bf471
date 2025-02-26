@@ -1,17 +1,14 @@
+let numbers = [1,4,5,6]
+let target = 9
+console.log(numberGuesser(numbers,target))
+function numberGuesser(nums: number[] , target: number):any[]{
 
-const keys = ["W","A","S","D"]
-function setup() {
-    createCanvas(500, 500);
-}
-
-function draw() {
-    background("black");
-    textAlign(CENTER, CENTER);
-    textSize(40);
-    fill("yellow");
-    noStroke();
-for(let i = 0; i<keys.length;i++){
-    if (keyIsDown(keys[i].charCodeAt(0))) {
-        text(`${keys[i]}`, width/2, height/2);
+for(let i = 0; i<nums.length; i++){
+    for(let k = i+1; k<nums.length;k++){
+        if(nums[k] + nums[i] === target){
+            return [nums[i],nums[k]]
+        }
     }
-}}
+}
+return [`in this array there are no two elements that equal ${target}`]
+}
