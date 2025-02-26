@@ -33,26 +33,26 @@ function draw() {
 
 
 
-for(let k = 0; k<3; k++){
-    // Draw five railroad segments
-    for (let i = 0; i < 5; i++) {
-        drawRailroad(i);
+    for (let k = 0; k < 3; k++) {
+        // Draw five railroad segments
+        for (let i = 0; i < 5; i++) {
+            drawRailroad(i);
+        }
+
+        for (let i = 0; i < 6; i++) {
+            drawCart(i)
+        }
+        translate(125, 100)
     }
 
-   for(let i = 0; i<6; i++){
-    drawCart(i)
-   }
-   translate(125,100)
-}
+    /** Draw a railroad segment */
+    function drawRailroad(ix: number) {
+        image(railroad, -RAILROAD_WIDTH * ix, RAILROAD_HEIGHT * ix, railroad.width, railroad.height);
 
-/** Draw a railroad segment */
-function drawRailroad(ix: number) {
-    image(railroad, -RAILROAD_WIDTH * ix, RAILROAD_HEIGHT * ix, railroad.width, railroad.height);
+    }
 
-}
-
-function drawCart(ix: number){
-    image(cart, -WAGON_WIDTH*ix,WAGON_HEIGHT*ix, cart.width, cart.height)
-}
+    function drawCart(ix: number) {
+        image(cart, -WAGON_WIDTH * ix, WAGON_HEIGHT * ix, cart.width, cart.height)
+    }
 }
 
