@@ -5,14 +5,13 @@ const WAGON_WIDTH = 160;
 const WAGON_HEIGHT = 113;
 
 let railroad: p5.Image;
-let cart: p5.Image
-
+let train: p5.Image
 const BASE_URL = "https://cddataexchange.blob.core.windows.net/images/trains";
 
 function setup() {
     createCanvas(800, 550);
     railroad = loadImage(`${BASE_URL}/railroad-straight.png`);
-    cart = loadImage(`${BASE_URL}/train-carriage-wood.png`)
+    train = loadImage(`${BASE_URL}/train-carriage-wood.png`)
 }
 
 function draw() {
@@ -26,33 +25,27 @@ function draw() {
     // the right.
     translate(850, -100);
 
+    // <<< For task 2, add another loop here
+    for(let k = 0; k<3; k++){
 
-
-
-
-
-
-
-    for (let k = 0; k < 3; k++) {
-        // Draw five railroad segments
-        for (let i = 0; i < 5; i++) {
-            drawRailroad(i);
-        }
-
-        for (let i = 0; i < 6; i++) {
-            drawCart(i)
-        }
-        translate(125, 100)
+    // Draw five railroad segments
+    for (let i = 0; i < 5; i++) {
+        drawRailroad(i);
     }
 
-    /** Draw a railroad segment */
-    function drawRailroad(ix: number) {
-        image(railroad, -RAILROAD_WIDTH * ix, RAILROAD_HEIGHT * ix, railroad.width, railroad.height);
-
+    for(let i = 0; i<6; i++){
+        drawTrain(i)
     }
-
-    function drawCart(ix: number) {
-        image(cart, -WAGON_WIDTH * ix, WAGON_HEIGHT * ix, cart.width, cart.height)
-    }
+    translate(125,100)
 }
 
+/** Draw a railroad segment */
+function drawRailroad(ix: number) {
+    image(railroad, -RAILROAD_WIDTH * ix, RAILROAD_HEIGHT * ix, railroad.width, railroad.height);
+
+}
+
+function drawTrain(ix:number){
+    image(train, -WAGON_WIDTH*ix,WAGON_HEIGHT*ix,train.width,train.height)
+}
+    }
