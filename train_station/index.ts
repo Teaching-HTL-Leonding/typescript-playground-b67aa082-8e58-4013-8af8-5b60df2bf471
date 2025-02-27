@@ -5,7 +5,7 @@ const WAGON_WIDTH = 160;
 const WAGON_HEIGHT = 113;
 
 let railroad: p5.Image;
-const trainCars: p5.Image[] = [];
+let trainCars: p5.Image[] = [];
 
 /** Array of wagons for train (for base requirements) */
 let train: p5.Image[] = [];
@@ -28,8 +28,8 @@ function setup() {
     railroad = loadImage(`${BASE_URL}/railroad-straight.png`);
     for(let i = 0; i<imageUrls.length; i++){
         trainCars.push(loadImage(`${BASE_URL}/${imageUrls[i]}`))
-        parseTrain(TRAIN)
     }
+    parseTrain(TRAIN)
     // <<< Add code to load all images (see imageUrls in wagons.ts).
     //     Add the images to the trainCars array. After loading all image,
     //     the length of the trainCars array must be equal to the length of imageUrls.
@@ -39,8 +39,8 @@ function setup() {
 }
 
 function draw() {
-    background("#f0f0f0");
-
+    background("#f0f0f0"); 
+    
     scale(0.5, 0.5);
 
     translate(850, -100);
