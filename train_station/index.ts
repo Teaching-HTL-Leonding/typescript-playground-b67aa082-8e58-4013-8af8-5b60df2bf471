@@ -26,7 +26,7 @@ const TRACKS = "TLB,TCCG,TCTL,TCW,TCL,TCCR;TEDA,TEDB,TEDB,TEDC,TEDB;TDA,TCF,TCC,
 function setup() {
     createCanvas(800, 550);
     railroad = loadImage(`${BASE_URL}/railroad-straight.png`);
-    for(let i = 0; i<imageUrls.length; i++){
+    for (let i = 0; i < imageUrls.length; i++) {
         trainCars.push(loadImage(`${BASE_URL}/${imageUrls[i]}`))
     }
     train = parseTrain(TRAIN)
@@ -39,8 +39,8 @@ function setup() {
 }
 
 function draw() {
-    background("#f0f0f0"); 
-    
+    background("#f0f0f0");
+
     scale(0.5, 0.5);
 
     translate(850, -100);
@@ -69,35 +69,34 @@ function drawTrainWagon(wagon: p5.Image, ix: number) {
     image(wagon, -WAGON_WIDTH * ix, WAGON_HEIGHT * ix, wagon.width, wagon.height);
 }
 
-function parseTrain(wagons: string):p5.Image[]{
-    let temp =""
-    let array:string[]= []
-    for(let i = 0; i<TRAIN.length;i++){
-        if(TRAIN[i] === ","){
+function parseTrain(wagons: string): p5.Image[] {
+    let temp = ""
+    let array: string[] = []
+    for (let i = 0; i < TRAIN.length; i++) {
+        if (TRAIN[i] === ",") {
             array.push(temp)
-            temp =""
+            temp = ""
         }
-        else{
+        else {
             temp = temp + TRAIN[i]
         }
     }
     array.push(temp)
-    let numbers: number[] =[]
+    let numbers: number[] = []
     let result: p5.Image[] = []
-    for(let i = 0; i<array.length;i++){
+    for (let i = 0; i < array.length; i++) {
         numbers.push(getWagonIndex(array[i]))
         result.push(trainCars[numbers[i]])
-        
-    }   
-   
-return result.reverse();
-}
-function getWagonIndex(temp: string):number{
 
-for(let i = 0;i<abbreviations.length;i++){
-    if(temp === abbreviations[i]){
-    return i;
     }
-}
 
+    return result.reverse();
+}
+function getWagonIndex(temp: string): number {
+
+    for (let i = 0; i < abbreviations.length; i++) {
+        if (temp === abbreviations[i]) {
+            return i;
+        }
+    }
 }
