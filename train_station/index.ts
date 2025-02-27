@@ -29,7 +29,7 @@ function setup() {
     for(let i = 0; i<imageUrls.length; i++){
         trainCars.push(loadImage(`${BASE_URL}/${imageUrls[i]}`))
     }
-    parseTrain(TRAIN)
+    train = parseTrain(TRAIN)
     // <<< Add code to load all images (see imageUrls in wagons.ts).
     //     Add the images to the trainCars array. After loading all image,
     //     the length of the trainCars array must be equal to the length of imageUrls.
@@ -82,15 +82,15 @@ function parseTrain(wagons: string):p5.Image[]{
         }
     }
     array.push(temp)
-    let numbers: number[]
-    let result: p5.Image[]
+    let numbers: number[] =[]
+    let result: p5.Image[] = []
     for(let i = 0; i<array.length;i++){
         numbers.push(getWagonIndex(array[i]))
         result.push(trainCars[numbers[i]])
         
     }   
    
-return result;
+return result.reverse();
 }
 function getWagonIndex(temp: string):number{
 
