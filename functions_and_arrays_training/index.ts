@@ -105,6 +105,13 @@ function getIndexOf(numbersString: string, number: number): number {
 * @returns The index of the number, -1 if the number is not found
 */
 function findIndexInArray(array: number[], number: number): number {
+    for(let i = 0;i<array.length;i++){
+        if(array[i]=== number){
+            return i
+        }
+    }
+
+
     return -1; // <<< Remove this line and implement the function
 }
 
