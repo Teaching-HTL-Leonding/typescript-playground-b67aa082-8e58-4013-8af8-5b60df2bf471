@@ -53,16 +53,16 @@ function setup() {
 function getSum(numbersString: string): number {
     let temp = 0;
     let sum = 0;
-    for(let i = 0; i<numbersString.length;i++){
-        if(numbersString[i]=== ","){
-         sum = sum + temp
-   
+    for (let i = 0; i < numbersString.length; i++) {
+        if (numbersString[i] === ",") {
+            sum = sum + temp
+
             temp = 0
         }
-        else{
+        else {
             temp = temp * 10 + parseInt(numbersString[i])
         }
-    
+
     }
     sum = sum + temp
     return sum; // <<< Remove this line and implement the function
@@ -75,24 +75,24 @@ function getSum(numbersString: string): number {
 * @returns The start index of the number, -1 if the number is not found
 */
 function getIndexOf(numbersString: string, number: number): number {
-    let temp:number = 0;
-    let array:string[] = []
-    for(let i = 0; i<numbersString.length; i++){
-        if(numbersString[i]=== ","){
+    let temp: number = 0;
+    let array: string[] = []
+    for (let i = 0; i < numbersString.length; i++) {
+        if (numbersString[i] === ",") {
             array.push(temp.toString());
             temp = 0;
         }
-        else{
-            temp = temp *10 + parseInt(numbersString[i])
+        else {
+            temp = temp * 10 + parseInt(numbersString[i])
         }
     }
     array.push(temp.toString())
-    let currentIndex = 0 
-    for(let i = 0; i<array.length;i++){
-        if(array[i]=== number.toString()){
+    let currentIndex = 0
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] === number.toString()) {
             return currentIndex;
         }
-        currentIndex = currentIndex + array[i].length+1
+        currentIndex = currentIndex + array[i].length + 1
     }
     return -1;
 }
@@ -104,8 +104,8 @@ function getIndexOf(numbersString: string, number: number): number {
 * @returns The index of the number, -1 if the number is not found
 */
 function findIndexInArray(array: number[], number: number): number {
-    for(let i = 0;i<array.length;i++){
-        if(array[i]=== number){
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] === number) {
             return i
         }
     }
@@ -141,50 +141,50 @@ function decodeCCard(cardShortcode: string): string {
     let shortrank = cardShortcode[1]
     let longsuit = ""
     let longrank = ""
-    switch(shortsuit){
+    switch (shortsuit) {
         case "S": longsuit = "Spades"
-        break;
+            break;
         case "H": longsuit = "Hearts"
-        break;
+            break;
         case "D": longsuit = "Diamonds"
-        break;
+            break;
         case "C": longsuit = "Clubs"
-        break;
+            break;
         default: longsuit = "unknown"
-        break;
+            break;
     }
-        switch(shortrank){
-            case "1": longrank = "1"
+    switch (shortrank) {
+        case "1": longrank = "1"
             break;
-            case "2": longrank = "2"
+        case "2": longrank = "2"
             break;
-            case "3": longrank = "3"
+        case "3": longrank = "3"
             break;
-            case "4": longrank = "4"
+        case "4": longrank = "4"
             break;
-            case "5": longrank = "5"
+        case "5": longrank = "5"
             break;
-            case "6": longrank = "6"
+        case "6": longrank = "6"
             break;
-            case "7": longrank = "7"
+        case "7": longrank = "7"
             break;
-            case "8": longrank = "8"
+        case "8": longrank = "8"
             break;
-            case "9": longrank = "9"
+        case "9": longrank = "9"
             break;
-            case "T": longrank = "10"
+        case "T": longrank = "10"
             break;
-            case "J": longrank = "Jack"
+        case "J": longrank = "Jack"
             break;
-            case "Q": longrank = "Queen"
+        case "Q": longrank = "Queen"
             break;
-            case "K": longrank = "King"
+        case "K": longrank = "King"
             break;
-            case "A": longrank = "Ace"
+        case "A": longrank = "Ace"
             break;
-            default: longrank = "unknown"
+        default: longrank = "unknown"
             break;
-        }
+    }
 
     return `${longrank} of ${longsuit}`; // <<< Remove this line and implement the function
 }
@@ -198,8 +198,8 @@ function findAllEvenNumbers(numberString: string): number[] {
     let arraynotsorted = []
     let arraysorted = []
     let temp = 0
-    for(let i = 0; i<numberString.length; i++){
-        if(numberString[i]===","){
+    for (let i = 0; i < numberString.length; i++) {
+        if (numberString[i] === ",") {
             arraynotsorted.push(temp)
             temp = 0
         }
@@ -208,16 +208,14 @@ function findAllEvenNumbers(numberString: string): number[] {
         }
     }
     arraynotsorted.push(temp)
-    for(let i = 0; i<arraynotsorted.length;i++){
-        if(arraynotsorted[i]%2 === 0)
-        arraysorted.push(arraynotsorted[i])
+    for (let i = 0; i < arraynotsorted.length; i++) {
+        if (arraynotsorted[i] % 2 === 0)
+            arraysorted.push(arraynotsorted[i])
     }
-    if(numberString === ""){
-    for(let i = 0; i<arraysorted.length;i++){
-        
+    if (numberString === "") {
+        for (let i = 0; i < arraysorted.length; i++) {
             arraysorted.splice(i)
-        
-    }
+        }
 
     }
     return arraysorted;
