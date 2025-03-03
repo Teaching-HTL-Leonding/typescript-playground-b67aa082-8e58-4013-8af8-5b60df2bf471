@@ -53,7 +53,6 @@ function setup() {
 function getSum(numbersString: string): number {
     let temp = 0;
     let sum = 0;
-    let array: number[]=[]
     for(let i = 0; i<numbersString.length;i++){
         if(numbersString[i]=== ","){
          sum = sum + temp
@@ -84,7 +83,7 @@ function getIndexOf(numbersString: string, number: number): number {
             temp = 0;
         }
         else{
-            temp = temp*10 + parseInt(numbersString[i])
+            temp = temp *10 + parseInt(numbersString[i])
         }
     }
     array.push(temp.toString())
@@ -135,9 +134,59 @@ function findIndexInArray(array: number[], number: number): number {
 * * Q: Queen
 * * K: King
 * * A: Ace
+
 */
 function decodeCCard(cardShortcode: string): string {
-    return ""; // <<< Remove this line and implement the function
+    let shortsuit = cardShortcode[0]
+    let shortrank = cardShortcode[1]
+    let longsuit = ""
+    let longrank = ""
+    switch(shortsuit){
+        case "S": longsuit = "Spades"
+        break;
+        case "H": longsuit = "Hearts"
+        break;
+        case "D": longsuit = "Diamonds"
+        break;
+        case "C": longsuit = "Clubs"
+        break;
+        default: longsuit = "unknown"
+        break;
+    }
+        switch(shortrank){
+            case "1": longrank = "1"
+            break;
+            case "2": longrank = "2"
+            break;
+            case "3": longrank = "3"
+            break;
+            case "4": longrank = "4"
+            break;
+            case "5": longrank = "5"
+            break;
+            case "6": longrank = "6"
+            break;
+            case "7": longrank = "7"
+            break;
+            case "8": longrank = "8"
+            break;
+            case "9": longrank = "9"
+            break;
+            case "T": longrank = "10"
+            break;
+            case "J": longrank = "Jack"
+            break;
+            case "Q": longrank = "Queen"
+            break;
+            case "K": longrank = "King"
+            break;
+            case "A": longrank = "Ace"
+            break;
+            default: longrank = "unknown"
+            break;
+        }
+
+    return `${longrank} of ${longsuit}`; // <<< Remove this line and implement the function
 }
 
 /**
@@ -146,5 +195,22 @@ function decodeCCard(cardShortcode: string): string {
 * @returns An array of even numbers (e.g. [2, 30, 4]), empty array if no even numbers are found
 */
 function findAllEvenNumbers(numberString: string): number[] {
-    return []; // <<< Remove this line and implement the function
+    let arraynotsorted = []
+    let arraysorted = []
+    let temp = 0
+    for(let i = 0; i<numberString.length; i++){
+        if(numberString[i]===","){
+            arraynotsorted.push(temp)
+            temp = 0
+        }
+        else {
+            temp = temp * 10 + parseInt(numberString[i])
+        }
+    }
+    arraynotsorted.push(temp)
+    for(let i = 0; i<arraynotsorted.length;i++){
+        if(arraynotsorted[i]%2 === 0)
+        arraysorted.push(arraynotsorted[i])
+    }
+    return arraysorted;
 }
