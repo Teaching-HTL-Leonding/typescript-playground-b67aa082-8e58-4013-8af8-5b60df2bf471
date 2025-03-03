@@ -212,5 +212,10 @@ function findAllEvenNumbers(numberString: string): number[] {
         if(arraynotsorted[i]%2 === 0)
         arraysorted.push(arraynotsorted[i])
     }
+    for(let i = 0; i<arraysorted.length;i++){
+        if(arraysorted[i]=== 0){
+            arraysorted.splice(i)
+        }
+    }
     return arraysorted;
 }
