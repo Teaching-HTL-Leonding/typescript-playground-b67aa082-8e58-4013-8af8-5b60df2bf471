@@ -20,7 +20,7 @@ function setup() {
     //                 +---------- Change this line to test different hands
     //                 |           (e.g. royalFlush, straightFlush, fourOfAKind, ...)
     //                 v
-    const handString = straight;
+    const handString = straightFlush;
 
     hand = splitCardsString(handString);
 }
@@ -215,7 +215,10 @@ function isFlush(hand: string[]): boolean {
     if(hand[0][1] === hand[1][1]&&hand[0][1] === hand[2][1]&&hand[0][1] === hand[3][1]&&hand[0][1] === hand[4][1]){
         return true;
     }
-    else {return false;}
+    else 
+    {
+        return false;
+    }
 }
 
 /**
@@ -232,7 +235,7 @@ function isFlush(hand: string[]): boolean {
 function isStraight(hand: string[]): boolean {
 
 
-    if(getCardValue(hand[0])===getCardValue(hand[1])+1&&getCardValue(hand[0])===getCardValue(hand[2])+2&&getCardValue(hand[0])===getCardValue(hand[3])+3&&getCardValue(hand[0])===getCardValue(hand[4])+4){
+    if(getCardValue(hand[0])===getCardValue(hand[1])-1&&getCardValue(hand[0])===getCardValue(hand[2])-2&&getCardValue(hand[0])===getCardValue(hand[3])-3&&getCardValue(hand[0])===getCardValue(hand[4])-4){
             return true
     }
     
@@ -248,8 +251,9 @@ function isStraight(hand: string[]): boolean {
 * A hand is a straight flush if it is a flush and a straight.
 */
 function isStraightFlush(hand: string[]): boolean {
-    // DELETE the following line and replace it with
-    // a working solution for the function.
+    if(isStraight(hand)&&isFlush(hand)){
+        return true
+    }
     return false;
 }
 
