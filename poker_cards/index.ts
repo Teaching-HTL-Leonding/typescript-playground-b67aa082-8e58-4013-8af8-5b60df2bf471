@@ -20,7 +20,7 @@ function setup() {
     //                 +---------- Change this line to test different hands
     //                 |           (e.g. royalFlush, straightFlush, fourOfAKind, ...)
     //                 v
-    const handString = random;
+    const handString = straight;
 
     hand = splitCardsString(handString);
 }
@@ -101,9 +101,11 @@ function splitCardsString(cards: string): string[] {
 * of e.g. "0H" is 10, not 0!
 */
 function getCardValue(card: string): number {
+  
     const value = parseInt(card[0]);
+    
     if (value === 0) {
-        return 10
+        return 10;
     }
     else {
         return value;
@@ -136,7 +138,9 @@ function getCardDescription(card: string): string {
         case "D": longsuit = "diamonds"
             break;
         case "C": longsuit = "Clubs"
+            break;
     }
+    
 
 
 
@@ -194,9 +198,7 @@ function getCounts(hand: string[]): number[] {
         //     case 8: array[8]++; break;
         //     case 9: array[9]++; break;
         // }
-        if(parseInt(hand[i][0])){
-            array[i]++
-        }
+    array[parseInt(hand[i][0])]++
     }
     return array;
 }
@@ -210,9 +212,10 @@ function getCounts(hand: string[]): number[] {
 * A hand is a flush if all cards have the same suite.
 */
 function isFlush(hand: string[]): boolean {
-    // DELETE the following line and replace it with
-    // a working solution for the function.
-    return false;
+    if(hand[0][1] === hand[1][1]&&hand[0][1] === hand[2][1]&&hand[0][1] === hand[3][1]&&hand[0][1] === hand[4][1]){
+        return true;
+    }
+    else {return false;}
 }
 
 /**
@@ -227,9 +230,13 @@ function isFlush(hand: string[]): boolean {
 * before to get the value of the card.
 */
 function isStraight(hand: string[]): boolean {
-    // DELETE the following line and replace it with
-    // a working solution for the function.
-    return false;
+
+
+    if(getCardValue(hand[0])===getCardValue(hand[1])+1&&getCardValue(hand[0])===getCardValue(hand[2])+2&&getCardValue(hand[0])===getCardValue(hand[3])+3&&getCardValue(hand[0])===getCardValue(hand[4])+4){
+            return true
+    }
+    
+    else {return false}
 }
 
 /**
