@@ -103,9 +103,17 @@ function splitCardsString(cards: string): string[] {
 function getCardValue(card: string): number {
     
     let value = parseInt(card[0]);
+    let answer = 0
+
+    if(value = 10){
+        answer = 0
+    }
+    else if(value !== 10){
+        answer = value
+    }
 
     
-    return value;
+    return answer;
 }
 
 /**
@@ -122,8 +130,7 @@ function getCardValue(card: string): number {
 * before to get the value of the card.
 */
 function getCardDescription(card: string): string {
-    // DELETE the following line and replace it with
-    // a working solution for the function.
+
     return `${getCardValue(card)} of UNKNOWN`;
 }
 
