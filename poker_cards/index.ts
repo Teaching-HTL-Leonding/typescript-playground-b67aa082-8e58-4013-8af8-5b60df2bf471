@@ -15,7 +15,7 @@ function setup() {
     const pair = "5H,5D,6H,7D,8H";
     const highCard = "2H,3D,5S,7C,0H";
     const random = shuffleCards();
-    
+
     // Test the program with the example hands
     //                 +---------- Change this line to test different hands
     //                 |           (e.g. royalFlush, straightFlush, fourOfAKind, ...)
@@ -78,14 +78,14 @@ function draw() {
 * The function splits the string into an array of cards.
 */
 function splitCardsString(cards: string): string[] {
-    let answer : string[] = []
+    let answer: string[] = []
     let temp = "";
-    for(let i = 0 ; i<cards.length;i++){
-        if(cards[i]=== ","){
+    for (let i = 0; i < cards.length; i++) {
+        if (cards[i] === ",") {
             answer.push(temp)
             temp = ""
         }
-        else{temp = temp + cards[i]}
+        else { temp = temp + cards[i] }
     }
     answer.push(temp)
     return answer;
@@ -101,19 +101,14 @@ function splitCardsString(cards: string): string[] {
 * of e.g. "0H" is 10, not 0!
 */
 function getCardValue(card: string): number {
-    
-    let value = parseInt(card[0]);
-    let answer = 0
-
-    if(value = 10){
-        answer = 0
+    const value = parseInt(card[0]);
+    if (value === 0) {
+        return 10
     }
-    else if(value !== 10){
-        answer = value
+    else {
+        return value;
     }
 
-    
-    return answer;
 }
 
 /**
@@ -130,8 +125,23 @@ function getCardValue(card: string): number {
 * before to get the value of the card.
 */
 function getCardDescription(card: string): string {
+    const shortsuit = card[1]
+    let longsuit = ""
+    switch (shortsuit) {
 
-    return `${getCardValue(card)} of UNKNOWN`;
+        case "H": longsuit = "hearts"
+            break;
+        case "S": longsuit = "spades"
+            break;
+        case "D": longsuit = "diamonds"
+            break;
+        case "C": longsuit = "Clubs"
+    }
+
+
+
+
+    return `${getCardValue(card)} of ${longsuit}`;
 }
 
 /**
@@ -144,9 +154,18 @@ function getCardDescription(card: string): string {
 * Tip: Consider using the functions that you wrote before.
 */
 function getHighestCard(hand: string[]): string {
-    // DELETE the following line and replace it with
-    // a working solution for the function.
-    return getCardDescription('1H');
+
+    let highestvalue = 0
+    let description = ""
+    for (let i = 0; i < hand.length; i++) {
+
+        if (getCardValue(hand[i]) >= highestvalue) {
+            description = getCardDescription(hand[i])
+            highestvalue = getCardValue[i]
+        }
+    }
+
+    return `${description}`;
 }
 
 /**
@@ -160,9 +179,26 @@ function getHighestCard(hand: string[]): string {
 * [0, 0, 0, 0, 0, 2, 0, 2, 1, 0].
 */
 function getCounts(hand: string[]): number[] {
-    // DELETE the following line and replace it with
-    // a working solution for the function.
-    return [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+    let array: number[] = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    for (let i = 0; i < hand.length; i++) {
+
+        // switch (parseInt(hand[i][0])) {
+        //     case 0: array[0]++; break;
+        //     case 1: array[1]++; break;
+        //     case 2: array[2]++; break;
+        //     case 3: array[3]++; break;
+        //     case 4: array[4]++; break;
+        //     case 5: array[5]++; break;
+        //     case 6: array[6]++; break;
+        //     case 7: array[7]++; break;
+        //     case 8: array[8]++; break;
+        //     case 9: array[9]++; break;
+        // }
+        if(parseInt(hand[i][0])){
+            array[i]++
+        }
+    }
+    return array;
 }
 
 /**
