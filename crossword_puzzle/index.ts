@@ -10,6 +10,8 @@
 let word: string[] = []
 let start: number[] = []
 let hint: string[] = []
+let pressedkeys = ""
+let wrongguesses = 0
 const crossword = `krebs,0,Schalentier  
 elefant,-1,Größtes Landtier  
 schlange,-4,Lautloser Jäger  
@@ -80,3 +82,22 @@ function drawChars(parts:number[], words: string[]){
             text(words[j][i],startx + 50*i+20,50*j+30)
         }
 }}
+function keyPressed(){
+    let inputinarray = false
+            for (let j = 0; j < word.length; j++) {
+        
+        for (let i = 0; i < word[j].length; i++) {
+            textSize(20)
+            if(key === word[j][i]){
+                inputinarray = true
+                if(pressedkeys.includes(word[j][i])=== false){
+                pressedkeys += word[j][i]
+                return;
+                }
+            }
+        }
+}
+if(!inputinarray){
+    wrongguesses++
+}
+}
