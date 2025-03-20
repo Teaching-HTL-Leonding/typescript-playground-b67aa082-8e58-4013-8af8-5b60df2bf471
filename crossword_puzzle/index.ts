@@ -79,7 +79,10 @@ function drawChars(parts:number[], words: string[]){
         
         for (let i = 0; i < words[j].length; i++) {
             textSize(20)
+            if(pressedkeys.includes(words[j][i])){
+
             text(words[j][i],startx + 50*i+20,50*j+30)
+            }
         }
 }}
 function keyPressed(){
