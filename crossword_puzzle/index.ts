@@ -100,6 +100,7 @@ function keyPressed(){
 if(!inputinarray){
     wrongguesses++
 }
+loop();
 }
 function draw(){
         background("white")
@@ -107,4 +108,5 @@ parseData(crossword)
 drawCells(start,word)
 drawHints(hint)
 drawChars(start,word)
+noLoop();
 }
