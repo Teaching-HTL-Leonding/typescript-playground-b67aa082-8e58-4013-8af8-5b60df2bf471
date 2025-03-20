@@ -64,7 +64,9 @@ function drawHints(hint: string[]){
 
     textAlign(LEFT)
     textSize(20)
+    fill("black")
+    noStroke();
     for(let i = 0; i<hint.length;i++){
-        text(hint[i],width-200,50+50*i)
+        text(hint[i],width-200,35+50*i)
     }
 }
