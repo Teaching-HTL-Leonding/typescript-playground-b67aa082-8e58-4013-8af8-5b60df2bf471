@@ -19,7 +19,7 @@ const images: p5.Image[] = [];
 // for multiple levels as strings. Switch between levels
 // by changing the index in the levels array. Test your
 // implementation with different levels.
-const levelString = levels[0];
+const levelString = levels[4];
 
 // 2D array to store the level grid after parsing
 let level: string[][] = []
@@ -32,8 +32,8 @@ function preload() {
     // <<< Add code to load all images from the imageNames array
     // <<< Add code to parse the level string into a 2D array
     for(const line of levelString.split("\n")){
-        const chars = line.split("")
-        level.push(chars)
+        const chars = line.split("");
+        level.push(chars);
     }
 }
 
@@ -43,15 +43,47 @@ function preload() {
 * @returns The corresponding p5.Image object
 */
 function getBlockImageBySymbol(type: string): p5.Image {
-    // <<< Add necessary code here
-    return images[0]; // <<< Replace this code with your implementation
+    // if(type === "X" ){
+    //     return images[0];
+    // }
+    // else if(type === "."){
+    //     return images[2];
+    // }
+    // else if(type === "@"|| type === " "){
+    //     return images[1];
+    // }
+    // else if(type === "b"){
+    //     return images[3];
+    // }
+    // else if( type === "B"){
+
+    //     return images[4]; // <<< Replace this code with your implementation
+    // }
+    switch(type){
+        case "X": return images[0];
+        case ".": return images[2];
+        case "b": return images[3];
+        case "B": return images[4];
+        default: return images[1];
+    }
 }
 
 // Size of each cell in pixels
 const cellSize = 64;
 
 function setup() {
-    // <<< Add code to create a canvas sized to fit the level dimensions
-
-    // <<< Add code to draw level
+    createCanvas(1000,1000)
+    background("white")
+    for(const row of level){
+        push();
+        for(const cell of row){
+            if(cell!== "_"){
+                const img = getBlockImageBySymbol(cell);
+                image(img, 0,0,cellSize,cellSize);
+            }
+            translate(cellSize,0);
+        }
+        pop();
+        translate(0,cellSize)
+    }
 }
