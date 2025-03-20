@@ -33,12 +33,11 @@ const solution = 'klapperschlange';
 
 // === Write the necessary code starting here ===
 function setup() {
-    createCanvas(1000,1000)
+    createCanvas(1000, 1000)
     background("white")
     parseData(crossword)
-  
-
 }
+
 function parseData(crossword: string): string[] {
     for (const row of crossword.split("\n")) {
         const parts = row.split(",")
@@ -48,100 +47,105 @@ function parseData(crossword: string): string[] {
     }
     return
 }
+
 function drawCells(parts: number[], words: string[]) {
     for (let j = 0; j < parts.length; j++) {
         const startx = width / 4 - 25 + (parts[j] * 50);
-        
+
         for (let i = 0; i < words[j].length; i++) {
-            if(startx + 50 * i=== 225)
-            fill("yellow")
-            else{
-                noFill();}
+            if (startx + 50 * i === 225)
+                fill("yellow")
+            else
+                noFill();
             stroke("black");
             rect(startx + 50 * i, 50 * j, 50, 50);
         }
     }
 }
-function drawHints(hint: string[]){
 
+function drawHints(hint: string[]) {
     textAlign(LEFT)
     textSize(20)
     fill("black")
     noStroke();
-    for(let i = 0; i<hint.length;i++){
-        text(hint[i],width-200,35+50*i)
+    for (let i = 0; i < hint.length; i++) {
+        text(hint[i], width - 200, 35 + 50 * i)
     }
 }
-function drawChars(parts:number[], words: string[]){
-        for (let j = 0; j < parts.length; j++) {
+
+function drawChars(parts: number[], words: string[]) {
+    for (let j = 0; j < parts.length; j++) {
         const startx = width / 4 - 25 + (parts[j] * 50);
-        
+
         for (let i = 0; i < words[j].length; i++) {
             textSize(20)
-            if(pressedkeys.includes(words[j][i])){
-
-            text(words[j][i],startx + 50*i+20,50*j+30)
+            if (pressedkeys.includes(words[j][i])) {
+                text(words[j][i], startx + 50 * i + 20, 50 * j + 30)
             }
         }
-}}
-function keyPressed(){
+    }
+}
 
-    let inputinarray = false
-            for (let j = 0; j < word.length; j++) {
-        
+function keyPressed() {
+    let inputinarray = false;
+    for (let j = 0; j < word.length; j++) {
         for (let i = 0; i < word[j].length; i++) {
-            textSize(20)
-            if(key === word[j][i]){
-                inputinarray = true
-                if(pressedkeys.includes(word[j][i])=== false){
-                pressedkeys += word[j][i]
-                loop();
-                return;
+            if (key === word[j][i]) {
+                inputinarray = true;
+                if (pressedkeys.includes(word[j][i]) === false) {
+                    pressedkeys += word[j][i];
+                    loop();  
+                    return;
                 }
             }
         }
-}
-if(!inputinarray){
-    wrongguesses++
+    }
+    if (!inputinarray) {
+        wrongguesses++;
         loop();
+    }
 }
+
+function draw() {
+    background("white");
+    drawCells(start, word);
+    drawHints(hint);
+    drawChars(start, word);
+    drawResults(pressedkeys, word);
+    noLoop();  
 }
-function draw(){
-background("white")
-drawCells(start,word)
-drawHints(hint)
-drawChars(start,word)
-drawResults(pressedkeys,word)
-noLoop();
-}
-function drawResults(rightkeys,word){
-    let message = `${wrongguesses} wrong guesses`
-    fill("red")
+
+function drawResults(rightkeys: string, word: string[]) {
+    let message = `${wrongguesses} wrong guesses`;
+    fill("red");
     noStroke();
-    let num = 0
-    for(let i = 0; i<word.length;i++){
-        for(let j = 0; i<word[i].length;j++){
-            if(pressedkeys.includes(word[i][j])){
-                num++
-            }
-        }
-    }
-    if(num === findOutHowManyUniqueChars(word)){
-        message = `you win with ${wrongguesses} wrong guesses`
-        fill("green")
-    }
-    text(message,width/2,height-100)
-}
-function findOutHowManyUniqueChars(word: string[]):number{
     let num = 0;
-    let chars = ""
-    for(let i = 0; i<word.length;i++){
-        for(let j = 0; j<word[i].length;j++){
-            if(!chars.includes(word[i][j])){
-                chars += word[i][j]
-                num++
+    for (let i = 0; i < word.length; i++) {
+        for (let j = 0; j < word[i].length; j++) {
+            if (pressedkeys.includes(word[i][j])) {
+                num++;
             }
         }
     }
-    return num 
+
+    if (num === findOutHowManyUniqueChars(word)) {
+        message = `You win with ${wrongguesses} wrong guesses!`;
+        fill("green");
+    }
+
+    text(message, width / 2, height - 100);
+}
+
+function findOutHowManyUniqueChars(word: string[]): number {
+    let num = 0;
+    let chars = "";
+    for (let i = 0; i < word.length; i++) {
+        for (let j = 0; j < word[i].length; j++) {
+            if (!chars.includes(word[i][j])) {
+                chars += word[i][j];
+                num++;
+            }
+        }
+    }
+    return num;
 }
