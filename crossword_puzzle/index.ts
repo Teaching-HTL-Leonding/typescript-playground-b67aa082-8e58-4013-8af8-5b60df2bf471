@@ -35,6 +35,7 @@ const solution = 'klapperschlange';
 function setup() {
     createCanvas(1000,1000)
     background("white")
+    parseData(crossword)
 
 }
 function parseData(crossword: string): string[] {
@@ -83,6 +84,7 @@ function drawChars(parts:number[], words: string[]){
         }
 }}
 function keyPressed(){
+
     let inputinarray = false
             for (let j = 0; j < word.length; j++) {
         
@@ -92,6 +94,7 @@ function keyPressed(){
                 inputinarray = true
                 if(pressedkeys.includes(word[j][i])=== false){
                 pressedkeys += word[j][i]
+                loop();
                 return;
                 }
             }
@@ -99,12 +102,11 @@ function keyPressed(){
 }
 if(!inputinarray){
     wrongguesses++
+        loop();
 }
-loop();
 }
 function draw(){
         background("white")
-parseData(crossword)
 drawCells(start,word)
 drawHints(hint)
 drawChars(start,word)
