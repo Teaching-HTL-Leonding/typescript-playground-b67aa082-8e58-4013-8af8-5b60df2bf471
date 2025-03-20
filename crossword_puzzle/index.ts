@@ -35,6 +35,7 @@ function setup() {
     background("white")
 parseData(crossword)
 drawCells(start,word)
+drawHints(hint)
 }
 function parseData(crossword: string): string[] {
     for (const row of crossword.split("\n")) {
@@ -57,5 +58,13 @@ function drawCells(parts: number[], words: string[]) {
             stroke("black");
             rect(startx + 50 * i, 50 * j, 50, 50);
         }
+    }
+}
+function drawHints(hint: string[]){
+
+    textAlign(LEFT)
+    textSize(20)
+    for(let i = 0; i<hint.length;i++){
+        text(hint[i],width-200,50+50*i)
     }
 }
