@@ -34,7 +34,7 @@ function setup() {
     createCanvas(1000,1000)
     background("white")
 parseData(crossword)
-drawCells(start)
+drawCells(start,word)
 }
 function parseData(crossword: string): string[] {
     for (const row of crossword.split("\n")) {
@@ -45,11 +45,20 @@ function parseData(crossword: string): string[] {
     }
     return
 }
-function drawCells(parts:number[]){
-    for(let i = 0;i<parts.length;i++){
-        const startx = width/4 -25+(parts[i]*50)
-        noFill()
-        stroke("black")
-        rect(width/2-25+(parts[i]*50),50*i,50,50)
+function drawCells(parts: number[], words: string[]) {
+    for (let j = 0; j < parts.length; j++) {
+        const startx = width / 4 - 25 + (parts[j] * 50);
+        
+        for (let i = 0; i < words[j].length; i++) {
+            if(startx + 50 * i=== 225)
+            fill("yellow")
+            else{
+                noFill();}
+            stroke("black");
+            rect(startx + 50 * i, 50 * j, 50, 50);
+        }
     }
+}
+function mouseClicked(){
+    console.log(mouseX)
 }
