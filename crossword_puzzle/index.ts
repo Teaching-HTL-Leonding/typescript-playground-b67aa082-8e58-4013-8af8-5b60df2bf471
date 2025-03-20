@@ -36,6 +36,7 @@ function setup() {
     createCanvas(1000,1000)
     background("white")
     parseData(crossword)
+  
 
 }
 function parseData(crossword: string): string[] {
@@ -106,9 +107,41 @@ if(!inputinarray){
 }
 }
 function draw(){
-        background("white")
+background("white")
 drawCells(start,word)
 drawHints(hint)
 drawChars(start,word)
+drawResults(pressedkeys,word)
 noLoop();
+}
+function drawResults(rightkeys,word){
+    let message = `${wrongguesses} wrong guesses`
+    fill("red")
+    noStroke();
+    let num = 0
+    for(let i = 0; i<word.length;i++){
+        for(let j = 0; i<word[i].length;j++){
+            if(word[i][j].includes(rightkeys)){
+                num++
+            }
+        }
+    }
+    if(num === findOutHowManyUniqueChars(word)){
+        message = `you win with ${wrongguesses} wrong guesses`
+        fill("green")
+    }
+    text(message,width/2,height-100)
+}
+function findOutHowManyUniqueChars(word: string[]):number{
+    let num = 0;
+    let chars = ""
+    for(let i = 0; i<word.length;i++){
+        for(let j = 0; j<word[i].length;j++){
+            if(!chars.includes(word[i][j])){
+                chars += word[i][j]
+                num++
+            }
+        }
+    }
+    return num 
 }
