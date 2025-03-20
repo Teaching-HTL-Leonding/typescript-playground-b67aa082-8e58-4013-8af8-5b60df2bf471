@@ -59,6 +59,3 @@ function drawCells(parts: number[], words: string[]) {
         }
     }
 }
-function mouseClicked(){
-    console.log(mouseX)
-}
