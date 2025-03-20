@@ -35,10 +35,7 @@ const solution = 'klapperschlange';
 function setup() {
     createCanvas(1000,1000)
     background("white")
-parseData(crossword)
-drawCells(start,word)
-drawHints(hint)
-drawChars(start,word)
+
 }
 function parseData(crossword: string): string[] {
     for (const row of crossword.split("\n")) {
@@ -103,4 +100,11 @@ function keyPressed(){
 if(!inputinarray){
     wrongguesses++
 }
+}
+function draw(){
+        background("white")
+parseData(crossword)
+drawCells(start,word)
+drawHints(hint)
+drawChars(start,word)
 }
