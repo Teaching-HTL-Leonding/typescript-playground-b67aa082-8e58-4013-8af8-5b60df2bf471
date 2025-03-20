@@ -121,7 +121,7 @@ function drawResults(rightkeys,word){
     let num = 0
     for(let i = 0; i<word.length;i++){
         for(let j = 0; i<word[i].length;j++){
-            if(word[i][j].includes(rightkeys)){
+            if(pressedkeys.includes(word[i][j])){
                 num++
             }
         }
