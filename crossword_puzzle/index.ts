@@ -37,6 +37,66 @@ function setup() {
     background("white")
     parseData(crossword)
 }
+function draw() {
+    background("white");
+    drawCells(start, word);
+    drawHints(hint);
+    drawChars(start, word);
+    drawResults();
+    noLoop();  
+}
+
+function keyPressed() {
+    let inputinarray = false;
+    for (let j = 0; j < word.length; j++) {
+        for (let i = 0; i < word[j].length; i++) {
+          
+
+            if (key === word[j][i]) {
+                inputinarray = true;
+                if (pressedkeys.includes(word[j][i]) === false) {
+                    pressedkeys += word[j][i];
+                    loop();  
+                    return;
+                }
+            
+            }
+            else if(pressedkeys.includes(key)){
+                inputinarray = false
+            }
+            }
+            
+        }
+    
+    if (!inputinarray) {
+        wrongguesses++;
+        loop();
+    }
+}
+function drawChars(parts: number[], words: string[]) {
+    for (let j = 0; j < parts.length; j++) {
+        const startx = width / 4 - 25 + (parts[j] * 50);
+
+        for (let i = 0; i < words[j].length; i++) {
+            textSize(20)
+            if (pressedkeys.includes(words[j][i])) {
+                text(words[j][i], startx + 50 * i + 20, 50 * j + 30)
+            }
+        }
+    }
+}
+function drawResults() {
+    let message = `${wrongguesses} wrong guesses`;
+    fill("red");
+    noStroke();
+    if(pressedkeys.includes(solution)){
+        fill("green")
+        message = `you win with ${wrongguesses}`
+    }
+
+    
+    text(message, width / 2, height - 100);
+}
 
 function parseData(crossword: string): string[] {
     for (const row of crossword.split("\n")) {
@@ -71,81 +131,4 @@ function drawHints(hint: string[]) {
     for (let i = 0; i < hint.length; i++) {
         text(hint[i], width - 200, 35 + 50 * i)
     }
-}
-
-function drawChars(parts: number[], words: string[]) {
-    for (let j = 0; j < parts.length; j++) {
-        const startx = width / 4 - 25 + (parts[j] * 50);
-
-        for (let i = 0; i < words[j].length; i++) {
-            textSize(20)
-            if (pressedkeys.includes(words[j][i])) {
-                text(words[j][i], startx + 50 * i + 20, 50 * j + 30)
-            }
-        }
-    }
-}
-
-function keyPressed() {
-    let inputinarray = false;
-    for (let j = 0; j < word.length; j++) {
-        for (let i = 0; i < word[j].length; i++) {
-            if (key === word[j][i]) {
-                inputinarray = true;
-                if (pressedkeys.includes(word[j][i]) === false) {
-                    pressedkeys += word[j][i];
-                    loop();  
-                    return;
-                }
-            }
-        }
-    }
-    if (!inputinarray) {
-        wrongguesses++;
-        loop();
-    }
-}
-
-function draw() {
-    background("white");
-    drawCells(start, word);
-    drawHints(hint);
-    drawChars(start, word);
-    drawResults(pressedkeys, word);
-    noLoop();  
-}
-
-function drawResults(rightkeys: string, word: string[]) {
-    let message = `${wrongguesses} wrong guesses`;
-    fill("red");
-    noStroke();
-    let num = 0;
-    for (let i = 0; i < word.length; i++) {
-        for (let j = 0; j < word[i].length; j++) {
-            if (pressedkeys.includes(word[i][j])) {
-                num++;
-            }
-        }
-    }
-
-    if (num === findOutHowManyUniqueChars(word)) {
-        message = `You win with ${wrongguesses} wrong guesses!`;
-        fill("green");
-    }
-
-    text(message, width / 2, height - 100);
-}
-
-function findOutHowManyUniqueChars(word: string[]): number {
-    let num = 0;
-    let chars = "";
-    for (let i = 0; i < word.length; i++) {
-        for (let j = 0; j < word[i].length; j++) {
-            if (!chars.includes(word[i][j])) {
-                chars += word[i][j];
-                num++;
-            }
-        }
-    }
-    return num;
 }
