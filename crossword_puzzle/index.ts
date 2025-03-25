@@ -12,6 +12,7 @@ let start: number[] = []
 let hint: string[] = []
 let pressedkeys = ""
 let wrongguesses = 0
+let haswon = false;
 const crossword = `krebs,0,Schalentier  
 elefant,-1,Größtes Landtier  
 schlange,-4,Lautloser Jäger  
@@ -48,6 +49,9 @@ function draw() {
 
 function keyPressed() {
     let inputinarray = false;
+    if(!haswon)
+    {
+
     for (let j = 0; j < word.length; j++) {
         for (let i = 0; i < word[j].length; i++) {
 
@@ -72,6 +76,7 @@ function keyPressed() {
         wrongguesses++;
         loop();
     }
+    }
 }
 function drawChars(parts: number[], words: string[]) {
     for (let j = 0; j < parts.length; j++) {
@@ -86,7 +91,7 @@ function drawChars(parts: number[], words: string[]) {
     }
 }
 function drawResults() {
-    let message = `${wrongguesses} wrong guesses`;
+    let message = `${wrongguesses} wrong guesses!`;
     let temp = 0
     fill("red");
     noStroke();
@@ -98,12 +103,12 @@ function drawResults() {
     }
     if (temp === solution.length) {
         fill("green")
-        message = `you win with ${wrongguesses} wrong guesses`
-
+        message = `you win with ${wrongguesses} wrong guesses!`
+        haswon = true;
     }
 
 
-    text(message, width / 2, height - 100);
+    text(message, width / 4, height - 100);
 }
 
 function parseData(crossword: string): string[] {
