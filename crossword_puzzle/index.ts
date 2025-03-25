@@ -43,31 +43,31 @@ function draw() {
     drawHints(hint);
     drawChars(start, word);
     drawResults();
-    noLoop();  
+    noLoop();
 }
 
 function keyPressed() {
     let inputinarray = false;
     for (let j = 0; j < word.length; j++) {
         for (let i = 0; i < word[j].length; i++) {
-          
+
 
             if (key === word[j][i]) {
                 inputinarray = true;
                 if (pressedkeys.includes(word[j][i]) === false) {
                     pressedkeys += word[j][i];
-                    loop();  
+                    loop();
                     return;
                 }
-            
+
             }
-            else if(pressedkeys.includes(key)){
+            else if (pressedkeys.includes(key)) {
                 inputinarray = false
             }
-            }
-            
         }
-    
+
+    }
+
     if (!inputinarray) {
         wrongguesses++;
         loop();
@@ -90,19 +90,19 @@ function drawResults() {
     let temp = 0
     fill("red");
     noStroke();
-    for(let i = 0; i<solution.length;i++){
+    for (let i = 0; i < solution.length; i++) {
 
-    if(pressedkeys.includes(solution[i])){
-        temp ++
+        if (pressedkeys.includes(solution[i])) {
+            temp++
+        }
     }
-    }
-    if(temp === solution.length ){
+    if (temp === solution.length) {
         fill("green")
         message = `you win with ${wrongguesses} wrong guesses`
 
     }
 
-    
+
     text(message, width / 2, height - 100);
 }
 
