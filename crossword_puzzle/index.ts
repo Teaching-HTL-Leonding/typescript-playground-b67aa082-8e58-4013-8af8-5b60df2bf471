@@ -87,11 +87,19 @@ function drawChars(parts: number[], words: string[]) {
 }
 function drawResults() {
     let message = `${wrongguesses} wrong guesses`;
+    let temp = 0
     fill("red");
     noStroke();
-    if(pressedkeys.includes(solution)){
+    for(let i = 0; i<solution.length;i++){
+
+    if(pressedkeys.includes(solution[i])){
+        temp ++
+    }
+    }
+    if(temp === solution.length ){
         fill("green")
-        message = `you win with ${wrongguesses}`
+        message = `you win with ${wrongguesses} wrong guesses`
+
     }
 
     
@@ -129,6 +137,6 @@ function drawHints(hint: string[]) {
     fill("black")
     noStroke();
     for (let i = 0; i < hint.length; i++) {
-        text(hint[i], width - 200, 35 + 50 * i)
+        text(hint[i], width - 250, 35 + 50 * i)
     }
 }
