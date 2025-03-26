@@ -2,28 +2,20 @@ function setup() {
     createCanvas(600, 400);
     background("black");
     angleMode(DEGREES);
-
-    // Do not fill the following shapes
-    noFill();
-
-    // Set line color and thickness (=weight)
-    stroke("white");
-    strokeWeight(2);
-
-    // draw a ellipse
-    ellipse(300, 200, 200, 120);
-
-
 }
+
+
+// <<< Füge hier die Funktion `mouseMoved` mit dem erforderlichen Code hinzu
 function mouseMoved() {
-    background("black")
-
-    let mousex = mouseX - width / 2;
-
-    let mousey = mouseY - height / 2;
-
+    let radiusX: number = (mouseX - width / 2);
+    let radiusY: number = (mouseY - height / 2);
+    let flaeche: number = (radiusX * radiusY * Math.PI);
+    // ellipse 
+    background("black");
     noFill();
     stroke("white");
-    strokeWeight(2.5);
-    ellipse(width / 2, height / 2, mousex * 2, mousey * 2) 
+    ellipse(width / 2, height / 2, (mouseX - width / 2) * 2, (mouseY - height / 2) * 2);
+    text(`${flaeche}`, 10, 390);
+    line(mouseX - width / 2, mouseX - width / 2, mouseY - height / 2, mouseY - height / 2);
 }
+
