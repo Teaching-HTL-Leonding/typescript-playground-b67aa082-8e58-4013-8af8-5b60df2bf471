@@ -1,19 +1,29 @@
-const ones: string[] = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine","ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"];
-const tensInWords: string[] = ["twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"];
-let temp:string = prompt("wähle eine zahl zwischen 0-99");
-let num = parseInt(temp)
-
 function setup() {
-    if(num<20){
-       console.log(ones[num])
-    }
-    if(num>=20){
-        let result =""
-        result += tensInWords[parseInt(temp[0])-2]
-        result += ones[parseInt(temp[1])]
-        console.log(result)
-    }
-}
+    createCanvas(600, 400);
+    background("black");
+    angleMode(DEGREES);
 
-function draw() {
+    // Do not fill the following shapes
+    noFill();
+
+    // Set line color and thickness (=weight)
+    stroke("white");
+    strokeWeight(2);
+
+    // draw a ellipse
+    ellipse(300, 200, 200, 120);
+
+
+}
+function mouseMoved() {
+    background("black")
+
+    let mousex = mouseX - width / 2;
+
+    let mousey = mouseY - height / 2;
+
+    noFill();
+    stroke("white");
+    strokeWeight(2.5);
+    ellipse(width / 2, height / 2, mousex * 2, mousey * 2) 
 }
