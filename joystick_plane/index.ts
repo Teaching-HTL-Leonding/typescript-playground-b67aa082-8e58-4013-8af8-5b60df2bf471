@@ -7,9 +7,10 @@ const fighterDisplayWidth = fighterDisplayHeight * (fighterImageWidth / fighterI
 let fighterPositionX = 0;
 let fighterPositionY = 0;
 let dragging = false;
-let circlex = 500 / 2
-let circley = 500 - 50
-let radiusBlack = 10
+let circlex = 500 / 2;
+let circley = 500 - 50;
+let radiusBlack = 10;
+
 function preload() {
   fighter = loadImage("https://cddataexchange.blob.core.windows.net/images/Spaceship.png");
 }
@@ -20,42 +21,48 @@ function setup() {
 
 function draw() {
   background("lightblue");
-  movePlane(circlex, circley, mouseX, mouseY)
-
+  movePlane(circlex, circley, mouseX, mouseY);
 
   push();
   imageMode(CENTER);
-
-
-
-
   translate(width / 2 + fighterPositionX, height / 2 + fighterPositionY);
   image(fighter, 0, 0, fighterDisplayWidth, fighterDisplayHeight);
   pop();
-  fill("white")
-  stroke("red")
-  circle(500 / 2, 500 - 50, 100)
-  fill("black")
-  stroke("black")
-  circle(circlex, circley, 20)
+
+  fill("white");
+  stroke("red");
+  circle(500 / 2, 500 - 50, 100);
+
+  fill("black");
+  stroke("black");
+  circle(circlex, circley, 20);
 }
 
 function mousePressed() {
-  dragging = isInRadius(circlex, circley, mouseX, mouseY, radiusBlack)
+  dragging = isInRadius(circlex, circley, mouseX, mouseY, radiusBlack);
 }
 
 function mouseDragged() {
   if (dragging) {
-    circlex = mouseX
-    circley = mouseY
+    let dx = mouseX - (width / 2);  
+    let dy = mouseY - (height - 50); 
+    let distance = Math.sqrt(dx * dx + dy * dy); 
 
+    if (distance > 50) {  
+      let scale = 50 / distance; 
+      circlex = (width / 2) + dx * scale; 
+      circley = (height - 50) + dy * scale; 
+    } else {
+      circlex = mouseX;
+      circley = mouseY;
+    }
   }
-  keepBlackInRed(mouseX, mouseY, circlex, circley)
 }
 
 function mouseReleased() {
-  dragging = false
+  dragging = false;
 }
+
 function isInRadius(x: number, y: number, xm: number, ym: number, radius: number): boolean {
   const dx = xm - x;
   const dy = ym - y;
@@ -64,38 +71,25 @@ function isInRadius(x: number, y: number, xm: number, ym: number, radius: number
 }
 
 function movePlane(x: number, y: number, xm: number, ym: number) {
-
-  let dx = 0
-  let dy = 0
+  let dx = 0;
+  let dy = 0;
 
   dx = x - width / 2;
   dy = y - (height - 50);
 
+  fighterPositionX += dx / 5;
+  fighterPositionY += dy / 5;
 
-  fighterPositionX += dx / 5
-  fighterPositionY += dy / 5
   if (fighterPositionX > 250) {
-    fighterPositionX = 250
+    fighterPositionX = 250;
+  } else if (fighterPositionX < -250) {
+    fighterPositionX = -250;
   }
-  else if (fighterPositionX < -250) {
-    fighterPositionX = -250
-  }
+
   if (fighterPositionY > 250) {
-    fighterPositionY = 250
-  }
-  else if (fighterPositionY < -250) {
-    fighterPositionY = -250
-  }
-}
-function keepBlackInRed(xm: number, ym: number, x: number, y: number) {
-  if (!isInRadius(width / 2, height - 50, circlex, circley, 50)) {
-    const dx = xm - x;
-    const dy = ym - y;
-    const radius = 50
-    const scalex = dx / radius
-    const scaley = dy / radius
-    circlex = dx * scalex
-    circley = dy * scaley
-    circle(circlex, circley, 20)
+    fighterPositionY = 250;
+  } else if (fighterPositionY < -250) {
+    fighterPositionY = -250;
   }
 }
+
