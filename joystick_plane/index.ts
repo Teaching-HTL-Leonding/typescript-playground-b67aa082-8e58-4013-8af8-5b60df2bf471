@@ -44,14 +44,14 @@ function mousePressed() {
 
 function mouseDragged() {
   if (dragging) {
-    let dx = mouseX - (width / 2);  
-    let dy = mouseY - (height - 50); 
-    let distance = Math.sqrt(dx * dx + dy * dy); 
+    let dx = mouseX - (width / 2);
+    let dy = mouseY - (height - 50);
+    let distance = Math.sqrt(dx * dx + dy * dy);
 
-    if (distance > 50) {  
-      let scale = 50 / distance; 
-      circlex = (width / 2) + dx * scale; 
-      circley = (height - 50) + dy * scale; 
+    if (distance > 50) {
+      let scale = 50 / distance;
+      circlex = (width / 2) + dx * scale;
+      circley = (height - 50) + dy * scale;
     } else {
       circlex = mouseX;
       circley = mouseY;
