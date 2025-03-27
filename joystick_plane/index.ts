@@ -7,8 +7,8 @@ const fighterDisplayWidth = fighterDisplayHeight * (fighterImageWidth / fighterI
 let fighterPositionX = 0;
 let fighterPositionY = 0;
 let dragging = false;
-let circlex = 500/2
-let circley = 500-50
+let circlex = 500 / 2
+let circley = 500 - 50
 let radiusBlack = 10
 function preload() {
   fighter = loadImage("https://cddataexchange.blob.core.windows.net/images/Spaceship.png");
@@ -23,23 +23,27 @@ function draw() {
 
   push();
   imageMode(CENTER);
+  if(dragging)
+    {
+    movePlane(circlex, circley, mouseX, mouseY)
+    }
   translate(width / 2 + fighterPositionX, height / 2 + fighterPositionY);
   image(fighter, 0, 0, fighterDisplayWidth, fighterDisplayHeight);
   pop();
   fill("white")
   stroke("red")
-  circle(500/2,500-50,100)
+  circle(500 / 2, 500 - 50, 100)
   fill("black")
   stroke("black")
-  circle(circlex,circley,20)
+  circle(circlex, circley, 20)
 }
 
 function mousePressed() {
-  dragging = isInRadius(circlex,circley,mouseX,mouseY,radiusBlack)
+  dragging = isInRadius(circlex, circley, mouseX, mouseY, radiusBlack)
 }
 
 function mouseDragged() {
-  if(dragging){
+  if (dragging) {
     circlex = mouseX
     circley = mouseY
 
@@ -49,17 +53,17 @@ function mouseDragged() {
 function mouseReleased() {
   dragging = false
 }
-function isInRadius(x:number,y:number,xm: number,ym:number,radius: number):boolean{
-  const dx = xm-x;
+function isInRadius(x: number, y: number, xm: number, ym: number, radius: number): boolean {
+  const dx = xm - x;
   const dy = ym - y;
   const distance = Math.sqrt(dx * dx + dy * dy);
-  return distance <= radius ;
-  }
-  function movePlane(x:number,y:number,xm: number,ym:number){
-  if(dragging){
-  const dx = (xm-x)/5;
-  const dy = (ym - y)/5;
-  fighterPositionX += dx
-  fighterPositionY += dy
-  }
+  return distance <= radius;
+}
+
+function movePlane(x: number, y: number, xm: number, ym: number) {
+
+    const dx = (xm - x) / 5;
+    const dy = (ym - y) / 5;
+    fighterPositionX += dx
+    fighterPositionY += dy
   }
