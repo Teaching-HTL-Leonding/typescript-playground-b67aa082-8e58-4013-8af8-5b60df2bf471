@@ -22,13 +22,13 @@ function draw() {
   background("lightblue");
   movePlane(circlex, circley, mouseX, mouseY)
 
- 
+
   push();
   imageMode(CENTER);
 
 
 
-    
+
   translate(width / 2 + fighterPositionX, height / 2 + fighterPositionY);
   image(fighter, 0, 0, fighterDisplayWidth, fighterDisplayHeight);
   pop();
@@ -50,6 +50,7 @@ function mouseDragged() {
     circley = mouseY
 
   }
+  keepBlackInRed(mouseX, mouseY, circlex, circley)
 }
 
 function mouseReleased() {
@@ -63,26 +64,38 @@ function isInRadius(x: number, y: number, xm: number, ym: number, radius: number
 }
 
 function movePlane(x: number, y: number, xm: number, ym: number) {
+
   let dx = 0
   let dy = 0
 
-    dx = x- width/2;
-    dy = y - (height-50);
+  dx = x - width / 2;
+  dy = y - (height - 50);
 
 
-    fighterPositionX += dx/5
-    fighterPositionY += dy/5
-    if(fighterPositionX > 250){
-      fighterPositionX = 250
-    }
-    else if(fighterPositionX < -250){
-      fighterPositionX = -250
-    }
-    if(fighterPositionY> 250){
-      fighterPositionY = 250
-    }
-    else if(fighterPositionY < -250){
-      fighterPositionY = -250
-    }
+  fighterPositionX += dx / 5
+  fighterPositionY += dy / 5
+  if (fighterPositionX > 250) {
+    fighterPositionX = 250
   }
-function
+  else if (fighterPositionX < -250) {
+    fighterPositionX = -250
+  }
+  if (fighterPositionY > 250) {
+    fighterPositionY = 250
+  }
+  else if (fighterPositionY < -250) {
+    fighterPositionY = -250
+  }
+}
+function keepBlackInRed(xm: number, ym: number, x: number, y: number) {
+  if (!isInRadius(width / 2, height - 50, circlex, circley, 50)) {
+    const dx = xm - x;
+    const dy = ym - y;
+    const radius = 50
+    const scalex = dx / radius
+    const scaley = dy / radius
+    circlex = dx * scalex
+    circley = dy * scaley
+    circle(circlex, circley, 20)
+  }
+}
