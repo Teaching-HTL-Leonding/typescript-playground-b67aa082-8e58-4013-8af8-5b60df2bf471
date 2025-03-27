@@ -72,4 +72,17 @@ function movePlane(x: number, y: number, xm: number, ym: number) {
 
     fighterPositionX += dx/5
     fighterPositionY += dy/5
+    if(fighterPositionX > 250){
+      fighterPositionX = 250
+    }
+    else if(fighterPositionX < -250){
+      fighterPositionX = -250
+    }
+    if(fighterPositionY> 250){
+      fighterPositionY = 250
+    }
+    else if(fighterPositionY < -250){
+      fighterPositionY = -250
+    }
   }
+function
