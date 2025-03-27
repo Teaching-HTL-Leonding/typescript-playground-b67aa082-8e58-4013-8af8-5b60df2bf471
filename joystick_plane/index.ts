@@ -6,7 +6,7 @@ const fighterDisplayHeight = 200;
 const fighterDisplayWidth = fighterDisplayHeight * (fighterImageWidth / fighterImageHeight);
 let fighterPositionX = 0;
 let fighterPositionY = 0;
-let pressedInCircle = false;
+let dragging = false;
 let circlex = 500/2
 let circley = 500-50
 function preload() {
@@ -34,11 +34,11 @@ function draw() {
 }
 
 function mousePressed() {
-  pressedInCircle = distance(circlex,circley)
+  dragging = isInRadius(circlex,circley,mouseX,mouseY)
 }
 
 function mouseDragged() {
-  if(pressedInCircle===true){
+  if(dragging){
     circlex = mouseX
     circley = mouseY
 
@@ -46,9 +46,9 @@ function mouseDragged() {
 }
 
 function mouseReleased() {
-  pressedInCircle = false
+  dragging = false
 }
-function distance(x:number,y:number,xm: number,ym:number):boolean{
+function isInRadius(x:number,y:number,xm: number,ym:number):boolean{
   const dx = mouseX -x;
   const dy = mouseY - y;
   const distance = Math.sqrt(dx * dx + dy * dy);
