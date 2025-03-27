@@ -21,12 +21,14 @@ function setup() {
 function draw() {
   background("lightblue");
 
+  movePlane(circlex, circley, mouseX, mouseY)
+ 
   push();
   imageMode(CENTER);
-  if(dragging)
-    {
-    movePlane(circlex, circley, mouseX, mouseY)
-    }
+
+
+
+    
   translate(width / 2 + fighterPositionX, height / 2 + fighterPositionY);
   image(fighter, 0, 0, fighterDisplayWidth, fighterDisplayHeight);
   pop();
@@ -61,9 +63,13 @@ function isInRadius(x: number, y: number, xm: number, ym: number, radius: number
 }
 
 function movePlane(x: number, y: number, xm: number, ym: number) {
+  let dx = 0
+  let dy = 0
+  if(dragging){
+    dx = (xm - x) / 5;
+    dy = (ym - y) / 5;
 
-    const dx = (xm - x) / 5;
-    const dy = (ym - y) / 5;
+  }
     fighterPositionX += dx
     fighterPositionY += dy
   }
