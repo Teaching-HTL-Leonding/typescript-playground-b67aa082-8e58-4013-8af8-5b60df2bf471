@@ -56,6 +56,10 @@ function isInRadius(x:number,y:number,xm: number,ym:number,radius: number):boole
   return distance <= radius ;
   }
   function movePlane(x:number,y:number,xm: number,ym:number){
+  if(dragging){
   const dx = (xm-x)/5;
   const dy = (ym - y)/5;
+  fighterPositionX += dx
+  fighterPositionY += dy
+  }
   }
