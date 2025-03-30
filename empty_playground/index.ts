@@ -1,8 +1,9 @@
-const wordtoguess = "abcde"
-let rows = 0
-const UNIT = 35
-let userinput: string[] = ["", "", "", "", "", ""]
-const allowedkeys = "abcdefghijklmnopqrstuvwxyz"
+const wordtoguess:string = "abcde";
+let rows:number = 0;
+const UNIT:number = 35;
+let userinput: string[] = ["", "", "", "", "", ""];
+const allowedkeys:string = "abcdefghijklmnopqrstuvwxyz";
+let won:boolean = false;
 
 function setup() {
     createCanvas(235, 250)
@@ -27,12 +28,11 @@ function keyPressed() {
     background("black")
 
     for (let i = 0; i < userinput.length; i++) {
-        for (let j = 0; j < userinput[i].length; j++)
-            if (userinput[i].length < 5 && allowedkeys.includes(userinput[i][j])) {
+            if (userinput[i].length < 5 && allowedkeys.includes(key)) {
 
 
                 userinput[i] += key;
-                break; // Sobald ein Zeichen eingefügt wurde, stoppen wir die Schleife
+                break; 
             }
 
     }
@@ -47,16 +47,20 @@ function drawGuesses(userinput: string[]) {
         for (let j = 0; j < userinput[i].length; j++) {
             if (wordtoguess[j] === userinput[i][j]) {
                 fill("green");
-                noStroke();
+             
             }
             else if (wordtoguess.includes(userinput[i][j])) {
                 fill("orange");
-                noStroke();
+                
             }
             else {
-                fill("white");
-                noStroke();
+                fill("black");
+                
             }
+            stroke("white")
+            rect(UNIT*j,UNIT*i,UNIT,UNIT)
+            fill("white")
+            noStroke();
             text(userinput[i][j], 15 + UNIT * j, 15 + UNIT * i)
         }
     }
@@ -75,8 +79,17 @@ function checkIfWon(userinput: string[]) {
         if (userinput[i] === wordtoguess) {
             background("black")
             textSize(20)
-            fill("white")
-            text(`you won with ${6 - rows} rows left`, 0, height / 2)
+            fill("green")
+            won = true;
+            noStroke();
+            text(`you won with ${6 - rows} rows left`, 15, height / 2)
         }
+    }
+    if(userinput[5].length === 5&& won === false){
+            background("black")
+            textSize(20)
+            fill("red")
+            noStroke();
+            text(`you lost the word to guess was ${wordtoguess}`, 15, height / 2,width)
     }
 }
