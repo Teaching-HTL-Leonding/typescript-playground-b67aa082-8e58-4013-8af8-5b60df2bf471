@@ -1,15 +1,15 @@
 
 const words: string[] = [
-    "apple", "brave", "charm", "doubt", "eager", "flame", "grape", "haste", "ideal", "jumbo",
-    "knife", "latch", "mango", "noble", "ocean", "piano", "quilt", "ranch", "scale", "tiger",
-    "umbra", "vivid", "waltz", "xenon", "youth", "zebra", "blaze", "chime", "draft", "event",
-    "frost", "glide", "heart", "inbox", "jolly", "kneel", "lunar", "merit", "nudge", "orbit",
-    "plume", "quirk", "relay", "spine", "throb", "udder", "vexed", "wreak", "xerox", "yield",
-    "zesty", "amber", "blend", "creek", "dwell", "ember", "fable", "grasp", "honor", "input",
-    "joust", "karma", "lever", "mirth", "novel", "olive", "perky", "quash", "rider", "shout",
-    "thorn", "usher", "vowel", "wider", "xylol", "yacht", "zonal", "baker", "chalk", "dizzy",
-    "elite", "focal", "giant", "haste", "inlet", "joint", "knack", "lyric", "macho", "nifty",
-    "oxide", "punch", "quirk", "risky", "scorn", "tense", "udder", "vigor", "woven", "xenon"
+    "apple", "brave", "chair", "dance", "eagle", "fresh", "grape", "happy", "ideal", "jolly",
+    "knock", "lunch", "music", "noble", "ocean", "pizza", "quiet", "right", "smile", "table",
+    "under", "vivid", "water", "xenon", "youth", "zebra", "bread", "cloud", "dream", "enjoy",
+    "frost", "great", "house", "input", "jumps", "knife", "lemon", "month", "never", "order",
+    "plant", "quick", "round", "stone", "thank", "union", "voice", "world", "extra", "yield",
+    "zesty", "after", "block", "class", "drive", "early", "field", "glass", "hotel", "issue",
+    "joint", "karma", "light", "money", "north", "other", "place", "quiet", "river", "sound",
+    "tiger", "until", "visit", "watch", "xerox", "young", "zonal", "above", "black", "close",
+    "doing", "event", "first", "green", "heart", "image", "jolly", "known", "lucky", "match",
+    "noted", "owner", "power", "reply", "smart", "tasty", "unity", "value", "write", "xylol"
 ];
 let randomnum = 0
 let wordtoguess:string = ""
@@ -104,6 +104,6 @@ function checkIfWon(userinput: string[]) {
             textSize(20)
             fill("red")
             noStroke();
-            text(`you lost the word to guess was ${wordtoguess}`, 15, height / 2,width)
+            text(`you lost\nthe word to guess was\n${wordtoguess}`, 15, height / 2)
     }
 }
