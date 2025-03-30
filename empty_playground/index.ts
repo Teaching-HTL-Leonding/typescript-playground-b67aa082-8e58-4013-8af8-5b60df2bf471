@@ -1,5 +1,19 @@
-const wordtoguess:string = "abcde";
-let rows:number = 0;
+
+const words: string[] = [
+    "apple", "brave", "charm", "doubt", "eager", "flame", "grape", "haste", "ideal", "jumbo",
+    "knife", "latch", "mango", "noble", "ocean", "piano", "quilt", "ranch", "scale", "tiger",
+    "umbra", "vivid", "waltz", "xenon", "youth", "zebra", "blaze", "chime", "draft", "event",
+    "frost", "glide", "heart", "inbox", "jolly", "kneel", "lunar", "merit", "nudge", "orbit",
+    "plume", "quirk", "relay", "spine", "throb", "udder", "vexed", "wreak", "xerox", "yield",
+    "zesty", "amber", "blend", "creek", "dwell", "ember", "fable", "grasp", "honor", "input",
+    "joust", "karma", "lever", "mirth", "novel", "olive", "perky", "quash", "rider", "shout",
+    "thorn", "usher", "vowel", "wider", "xylol", "yacht", "zonal", "baker", "chalk", "dizzy",
+    "elite", "focal", "giant", "haste", "inlet", "joint", "knack", "lyric", "macho", "nifty",
+    "oxide", "punch", "quirk", "risky", "scorn", "tense", "udder", "vigor", "woven", "xenon"
+];
+let randomnum = 0
+let wordtoguess:string = ""
+let usedrows:number = 0;
 const UNIT:number = 35;
 let userinput: string[] = ["", "", "", "", "", ""];
 const allowedkeys:string = "abcdefghijklmnopqrstuvwxyz";
@@ -9,9 +23,9 @@ function setup() {
     createCanvas(235, 250)
     background("black")
     drawOutlines();
+    randomnum = Math.floor(random(0,words.length))
+    wordtoguess = words[randomnum]
 }
-
-
 function drawOutlines() {
     stroke("white")
     push();
@@ -68,12 +82,12 @@ function drawGuesses(userinput: string[]) {
 }
 function checkIfWon(userinput: string[]) {
     switch (true) {
-        case (userinput[1] === ""): rows = 1; break;
-        case (userinput[2] === ""): rows = 2; break;
-        case (userinput[3] === ""): rows = 3; break;
-        case (userinput[4] === ""): rows = 4; break;
-        case (userinput[5] === ""): rows = 5; break;
-        case (userinput[6] === ""): rows = 6; break;
+        case (userinput[1] === ""): usedrows = 1; break;
+        case (userinput[2] === ""): usedrows = 2; break;
+        case (userinput[3] === ""): usedrows = 3; break;
+        case (userinput[4] === ""): usedrows = 4; break;
+        case (userinput[5] === ""): usedrows = 5; break;
+        case (userinput[6] === ""): usedrows = 6; break;
     }
     for (let i = 0; i < userinput.length; i++) {
         if (userinput[i] === wordtoguess) {
@@ -82,7 +96,7 @@ function checkIfWon(userinput: string[]) {
             fill("green")
             won = true;
             noStroke();
-            text(`you won with ${6 - rows} rows left`, 15, height / 2)
+            text(`you won with ${6 - usedrows} rows left`, 15, height / 2)
         }
     }
     if(userinput[5].length === 5&& won === false){
