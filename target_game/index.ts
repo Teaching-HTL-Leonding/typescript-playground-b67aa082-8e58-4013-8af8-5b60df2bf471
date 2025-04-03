@@ -23,7 +23,7 @@ smallcircley = findRandomYPos(smallradius);
 largecirclex = findRandomXPos(largeradius);
 largecircley = findRandomYPos(largeradius);
 }
-interval = setInterval(endGame,60000)
+//interval = setInterval(endGame,60000)
 interval2 = setInterval(countDown, 1000)
 
   // <<< Add setup logic here
@@ -97,7 +97,7 @@ function circleTouchesCircle(x1:number,y1:number,r1:number,x2:number,y2:number,r
       const dx = x1 - x2
       const dy = y1 - y2
       const distance = Math.sqrt(dx*dx+dy*dy)
-      return distance+ r1 > r2
+      return distance > r1 + r2
 }
 function endGame(){
  clearInterval(interval);
