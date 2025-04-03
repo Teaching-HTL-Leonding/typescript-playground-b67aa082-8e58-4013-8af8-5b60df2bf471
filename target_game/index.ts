@@ -1,32 +1,27 @@
-// <<< Add your game variables here
-let time = 60
-let dragging = false;
-const smallradius = 50;
-const largeradius = 70;
-let smallcirclex = 0
-let smallcircley = 0
-let largecirclex = 0
-let largecircley = 0
-let interval;
-let score = 0;
+let time: number = 60;
+let dragging: boolean = false;
+const smallradius: number = 50;
+const largeradius: number = 70;
+let smallcirclex: number = 0;
+let smallcircley: number = 0;
+let largecirclex: number = 0;
+let largecircley: number = 0;
+let interval: number;
+let score: number = 0;
 function setup() {
   createCanvas(800, 600);
   smallcirclex = findRandomXPos(smallradius);
   smallcircley = findRandomYPos(smallradius);
   largecirclex = findRandomXPos(largeradius);
   largecircley = findRandomYPos(largeradius);
-
   while (circleTouchesCircle(smallcirclex, smallcircley, smallradius, largecirclex, largecircley, largeradius)) {
     smallcirclex = findRandomXPos(smallradius);
     smallcircley = findRandomYPos(smallradius);
     largecirclex = findRandomXPos(largeradius);
     largecircley = findRandomYPos(largeradius);
   }
-
   interval = setInterval(countDown, 1000)
-  // <<< Add setup logic here
 }
-
 function draw() {
   if (time <= 0) {
     endGame();
@@ -47,18 +42,12 @@ function draw() {
 function mousePressed() {
   dragging = isInRadius(mouseX, mouseY, smallcirclex, smallcircley)
 }
-
 function mouseDragged() {
   if (dragging) {
     smallcirclex = mouseX
     smallcircley = mouseY
-
-
   }
-
-  // <<< Add mouse dragged logic here
 }
-
 function mouseReleased() {
   dragging = false
   if (circleInCircle(smallcirclex, smallcircley, smallradius, largecirclex, largecircley, largeradius)) {
@@ -69,15 +58,12 @@ function mouseReleased() {
     score++
   }
 }
-
-
 function isInRadius(mx: number, my: number, x: number, y: number): boolean {
   return distance(mx, my, x, y) < smallradius
 }
 function findRandomXPos(radius: number): number {
   const randomX = random(radius, width - radius)
   return randomX
-
 }
 function findRandomYPos(radius: number): number {
   const randomY = random(radius, height - radius)
