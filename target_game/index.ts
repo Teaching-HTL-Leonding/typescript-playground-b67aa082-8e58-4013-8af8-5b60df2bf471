@@ -7,11 +7,18 @@ let smallcircley= 0
 let largecirclex = 0
 let largecircley = 0
 function setup() {  
-  createCanvas(800, 600);
+createCanvas(800, 600);
 smallcirclex = findRandomXPos(smallradius);
-smallcircley = findRandomYPos(smallradius)
-largecirclex = findRandomXPos(largeradius)
-largecircley = findRandomYPos(largeradius)
+smallcircley = findRandomYPos(smallradius);
+largecirclex = findRandomXPos(largeradius);
+largecircley = findRandomYPos(largeradius);
+
+while(circleInCircle(smallcirclex,smallcircley,smallradius,largecirclex,largecircley,largeradius)){
+smallcirclex = findRandomXPos(smallradius);
+smallcircley = findRandomYPos(smallradius);
+largecirclex = findRandomXPos(largeradius);
+largecircley = findRandomYPos(largeradius);
+}
 
   // <<< Add setup logic here
 }
@@ -19,6 +26,7 @@ largecircley = findRandomYPos(largeradius)
 function draw() {
   background("lightgray");
   fill("lightblue")
+
   circle(smallcirclex,smallcircley,smallradius * 2)
   noFill();
   circle(largecirclex,largecircley,largeradius* 2)
@@ -30,7 +38,6 @@ function mousePressed() {
 
 function mouseDragged() {
   if(dragging){
-
     smallcirclex = mouseX
     smallcircley = mouseY
 
@@ -49,15 +56,22 @@ function isInRadius(mx:number,my:number,x:number,y:number):boolean{
   const dx = mx - x  
   const dy = my - y
   const distance = Math.sqrt(dx*dx+dy*dy)
-  return distance <smallradius
+ 
+  return distance <  smallradius
 }
-function findRandomXPos(radius:number){
+function findRandomXPos(radius:number):number{
   const randomX = random(radius,width-radius)
   return randomX
 
 }
-function findRandomYPos(radius:number){
+function findRandomYPos(radius:number):number{
   const randomY = random(radius,height-radius)
   return randomY
 }
-function circleInCircle(x1,y1,r1,x2,y2:number,r2:number)
+function circleInCircle(x1:number,y1:number,r1:number,x2:number,y2:number,r2:number):boolean{
+    const dx = x1 - x2
+    const dy = y1 - y2
+  const distance = Math.sqrt(dx*dx+dy*dy)
+  return distance + r1 < r2
+  
+}
