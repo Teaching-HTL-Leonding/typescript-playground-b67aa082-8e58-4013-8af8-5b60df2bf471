@@ -6,6 +6,8 @@ let smallcirclex= 0
 let smallcircley= 0
 let largecirclex = 0
 let largecircley = 0
+let interval;
+let score = 0;
 function setup() {  
 createCanvas(800, 600);
 smallcirclex = findRandomXPos(smallradius);
@@ -18,6 +20,7 @@ smallcirclex = findRandomXPos(smallradius);
 smallcircley = findRandomYPos(smallradius);
 largecirclex = findRandomXPos(largeradius);
 largecircley = findRandomYPos(largeradius);
+interval = setInterval(endGame,60000)
 }
 
   // <<< Add setup logic here
@@ -49,6 +52,11 @@ function mouseDragged() {
 
 function mouseReleased() {
   dragging = false
+  if(circleInCircle(smallcirclex,smallcircley,smallradius,largecirclex,largecircley,largeradius)){
+    largecirclex = findRandomXPos(largeradius);
+    largecircley = findRandomYPos(largeradius);
+    score++
+  }
 }
 
 
@@ -74,4 +82,10 @@ function circleInCircle(x1:number,y1:number,r1:number,x2:number,y2:number,r2:num
   const distance = Math.sqrt(dx*dx+dy*dy)
   return distance + r1 < r2
   
+}
+function endGame(){
+
+ clearInterval(interval);
+ noLoop();
+ background("lightgray")
 }
