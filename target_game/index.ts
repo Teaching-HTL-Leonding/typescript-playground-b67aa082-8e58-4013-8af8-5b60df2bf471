@@ -1,5 +1,5 @@
 // <<< Add your game variables here
-let time = 5
+let time = 60
 let dragging = false;
 const smallradius = 50;
 const largeradius = 70;
@@ -34,12 +34,11 @@ function draw() {
   }
   background("lightgray");
   fill("lightblue")
-
   circle(smallcirclex, smallcircley, smallradius * 2)
   noFill();
   circle(largecirclex, largecircley, largeradius * 2)
   fill("black")
-
+  textSize(15)
   text(`score:${score}`, 20, height - 10)
   text(`time:${time}`, width - 50, height - 10)
 
@@ -96,10 +95,11 @@ function distance(x1: number, y1: number, x2: number, y2: number) {
   return Math.sqrt(dx * dx + dy * dy)
 }
 function endGame() {
-
   clearInterval(interval)
   noLoop();
+  textSize(20)
   background("lightgray")
+  textAlign(CENTER)
   text(`Game Over!\n Final Score: ${score}`, width / 2, height / 2)
 }
 function countDown() {
