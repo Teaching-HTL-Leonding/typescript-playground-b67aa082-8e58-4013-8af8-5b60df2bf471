@@ -1,7 +1,7 @@
 // <<< Add your game variables here
 let dragging = false;
-const smallradius = 200;
-const largeradius = 220;
+const smallradius = 50;
+const largeradius = 70;
 let smallcirclex = 0
 let smallcircley = 0
 let largecirclex = 0
@@ -54,14 +54,14 @@ function mouseDragged() {
 
 function mouseReleased() {
   dragging = false
-  if (circleInCircle(smallcirclex, smallcircley, smallradius, largecirclex, largecircley, largeradius)) {
+  
     while (circleInCircle(smallcirclex, smallcircley, smallradius, largecirclex, largecircley, largeradius)) {
       largecirclex = findRandomXPos(largeradius);
       largecircley = findRandomYPos(largeradius);
       score++
     }
   }
-}
+
 
 
 function isInRadius(mx: number, my: number, x: number, y: number): boolean {
@@ -84,7 +84,7 @@ function circleInCircle(x1: number, y1: number, r1: number, x2: number, y2: numb
   const dx = x1 - x2
   const dy = y1 - y2
   const distance = Math.sqrt(dx * dx + dy * dy)
-  return distance <= r1+ r2
+  return distance +r1< r2
 
 }
 function endGame() {
