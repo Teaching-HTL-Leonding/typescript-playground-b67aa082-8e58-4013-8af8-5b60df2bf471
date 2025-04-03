@@ -1,4 +1,5 @@
 // <<< Add your game variables here
+  let time = 60
 let dragging = false;
 const smallradius = 50;
 const largeradius = 70;
@@ -7,6 +8,7 @@ let smallcircley= 0
 let largecirclex = 0
 let largecircley = 0
 let interval;
+let interval2;
 let score = 0;
 function setup() {  
 createCanvas(800, 600);
@@ -22,6 +24,7 @@ largecirclex = findRandomXPos(largeradius);
 largecircley = findRandomYPos(largeradius);
 }
 interval = setInterval(endGame,60000)
+interval2 = setInterval(countDown, 1000)
 
   // <<< Add setup logic here
 }
@@ -34,7 +37,10 @@ function draw() {
   noFill();
   circle(largecirclex,largecircley,largeradius* 2)
   fill("black")
+  
   text(`score:${score}`,20,height-10)
+  text(`time:${time}`,width-50,height-10)
+
 }
 
 function mousePressed() {
@@ -92,4 +98,7 @@ function endGame(){
  noLoop();
  background("lightgray")
  text(`Game Over!\n Final Score: ${score}`,width/2,height/2)
+}
+function countDown(){
+  time--
 }
