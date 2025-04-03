@@ -20,8 +20,8 @@ smallcirclex = findRandomXPos(smallradius);
 smallcircley = findRandomYPos(smallradius);
 largecirclex = findRandomXPos(largeradius);
 largecircley = findRandomYPos(largeradius);
-interval = setInterval(endGame,60000)
 }
+interval = setInterval(endGame,60000)
 
   // <<< Add setup logic here
 }
@@ -33,6 +33,8 @@ function draw() {
   circle(smallcirclex,smallcircley,smallradius * 2)
   noFill();
   circle(largecirclex,largecircley,largeradius* 2)
+  fill("black")
+  text(`score:${score}`,20,height-10)
 }
 
 function mousePressed() {
@@ -53,10 +55,12 @@ function mouseDragged() {
 function mouseReleased() {
   dragging = false
   if(circleInCircle(smallcirclex,smallcircley,smallradius,largecirclex,largecircley,largeradius)){
-    largecirclex = findRandomXPos(largeradius);
-    largecircley = findRandomYPos(largeradius);
+    while(circleInCircle(smallcirclex,smallcircley,smallradius,largecirclex,largecircley,largeradius)){
+  largecirclex = findRandomXPos(largeradius);
+  largecircley = findRandomYPos(largeradius);
     score++
   }
+}
 }
 
 
